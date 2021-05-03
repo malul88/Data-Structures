@@ -66,10 +66,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Michael Malul\OneDrive - Technion\מבני נתונים\Home Works\HW1"
+CMAKE_SOURCE_DIR = "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Michael Malul\OneDrive - Technion\מבני נתונים\Home Works\HW1\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -98,9 +98,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Michael Malul\OneDrive - Technion\מבני נתונים\Home Works\HW1\cmake-build-debug\CMakeFiles" "C:\Users\Michael Malul\OneDrive - Technion\מבני נתונים\Home Works\HW1\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug\CMakeFiles" "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Michael Malul\OneDrive - Technion\מבני נתונים\Home Works\HW1\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -141,6 +141,60 @@ HW1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/build
 .PHONY : HW1/fast
 
+avlTree.obj: avlTree.cpp.obj
+
+.PHONY : avlTree.obj
+
+# target to build an object file
+avlTree.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/avlTree.cpp.obj
+.PHONY : avlTree.cpp.obj
+
+avlTree.i: avlTree.cpp.i
+
+.PHONY : avlTree.i
+
+# target to preprocess a source file
+avlTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/avlTree.cpp.i
+.PHONY : avlTree.cpp.i
+
+avlTree.s: avlTree.cpp.s
+
+.PHONY : avlTree.s
+
+# target to generate assembly for a file
+avlTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/avlTree.cpp.s
+.PHONY : avlTree.cpp.s
+
+car.obj: car.cpp.obj
+
+.PHONY : car.obj
+
+# target to build an object file
+car.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/car.cpp.obj
+.PHONY : car.cpp.obj
+
+car.i: car.cpp.i
+
+.PHONY : car.i
+
+# target to preprocess a source file
+car.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/car.cpp.i
+.PHONY : car.cpp.i
+
+car.s: car.cpp.s
+
+.PHONY : car.s
+
+# target to generate assembly for a file
+car.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/car.cpp.s
+.PHONY : car.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -177,6 +231,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... HW1
+	@echo ... avlTree.obj
+	@echo ... avlTree.i
+	@echo ... avlTree.s
+	@echo ... car.obj
+	@echo ... car.i
+	@echo ... car.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
