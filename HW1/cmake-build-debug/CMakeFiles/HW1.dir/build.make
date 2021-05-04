@@ -61,10 +61,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1"
+CMAKE_SOURCE_DIR = "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/HW1.dir/depend.make
@@ -77,42 +77,42 @@ include CMakeFiles/HW1.dir/flags.make
 
 CMakeFiles/HW1.dir/main.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HW1.dir/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\main.cpp.obj -c "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HW1.dir/main.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\main.cpp.obj -c "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\main.cpp"
 
 CMakeFiles/HW1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\main.cpp" > CMakeFiles\HW1.dir\main.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\main.cpp" > CMakeFiles\HW1.dir\main.cpp.i
 
 CMakeFiles/HW1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\main.cpp" -o CMakeFiles\HW1.dir\main.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\main.cpp" -o CMakeFiles\HW1.dir\main.cpp.s
 
 CMakeFiles/HW1.dir/avlTree.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/avlTree.cpp.obj: ../avlTree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HW1.dir/avlTree.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\avlTree.cpp.obj -c "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\avlTree.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HW1.dir/avlTree.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\avlTree.cpp.obj -c "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\avlTree.cpp"
 
 CMakeFiles/HW1.dir/avlTree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/avlTree.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\avlTree.cpp" > CMakeFiles\HW1.dir\avlTree.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\avlTree.cpp" > CMakeFiles\HW1.dir\avlTree.cpp.i
 
 CMakeFiles/HW1.dir/avlTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/avlTree.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\avlTree.cpp" -o CMakeFiles\HW1.dir\avlTree.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\avlTree.cpp" -o CMakeFiles\HW1.dir\avlTree.cpp.s
 
 CMakeFiles/HW1.dir/car.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/car.cpp.obj: ../car.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HW1.dir/car.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\car.cpp.obj -c "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\car.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HW1.dir/car.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\car.cpp.obj -c "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\car.cpp"
 
 CMakeFiles/HW1.dir/car.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/car.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\car.cpp" > CMakeFiles\HW1.dir\car.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\car.cpp" > CMakeFiles\HW1.dir\car.cpp.i
 
 CMakeFiles/HW1.dir/car.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/car.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\car.cpp" -o CMakeFiles\HW1.dir\car.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\car.cpp" -o CMakeFiles\HW1.dir\car.cpp.s
 
 # Object files for target HW1
 HW1_OBJECTS = \
@@ -130,7 +130,7 @@ HW1.exe: CMakeFiles/HW1.dir/build.make
 HW1.exe: CMakeFiles/HW1.dir/linklibs.rsp
 HW1.exe: CMakeFiles/HW1.dir/objects1.rsp
 HW1.exe: CMakeFiles/HW1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable HW1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable HW1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\HW1.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -143,6 +143,6 @@ CMakeFiles/HW1.dir/clean:
 .PHONY : CMakeFiles/HW1.dir/clean
 
 CMakeFiles/HW1.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1" "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1" "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug" "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug" "C:\Users\Michael Malul\OneDrive - Technion\Data Structure\Home Works\HW1\cmake-build-debug\CMakeFiles\HW1.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1" "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1" "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\cmake-build-debug" "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\cmake-build-debug" "C:\Users\nhfh7\OneDrive - Technion\mtm_2021\Data-Structures\HW1\cmake-build-debug\CMakeFiles\HW1.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/HW1.dir/depend
 
