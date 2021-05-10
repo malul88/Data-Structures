@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/HW1.dir/avlTree.cpp.obj"
-  "CMakeFiles/HW1.dir/car.cpp.obj"
+  "CMakeFiles/HW1.dir/DS.cpp.obj"
+  "CMakeFiles/HW1.dir/carModel.cpp.obj"
+  "CMakeFiles/HW1.dir/car_type.cpp.obj"
   "CMakeFiles/HW1.dir/main.cpp.obj"
   "HW1.exe"
   "HW1.exe.manifest"
