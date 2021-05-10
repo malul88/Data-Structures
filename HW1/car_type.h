@@ -4,12 +4,11 @@
 
 
 class carType {
-private:
+public:
     int typeID;
     int num_of_models;
     void** models;
     void* best_seller;
-public:
     carType(): models(nullptr), best_seller(nullptr) {};
     carType(int typeID, int num_of_models) : typeID(typeID), num_of_models(num_of_models){
         void** res = new void* [num_of_models]; //todo put car models

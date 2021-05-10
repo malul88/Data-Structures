@@ -113,6 +113,8 @@ public:
 		return head;
 	}
 	// returns the head of the tree
+    TreeNode<KEY, DATA>* TreeRemove(TreeNode<KEY, DATA>* v);
+
 private:
 	TreeNode<KEY, DATA>* head;
 	int NumOfNodes;
@@ -145,8 +147,7 @@ private:
 	static int BF(TreeNode<KEY, DATA>& v);
 	//function to calculate the BF of a node
 
-	TreeNode<KEY, DATA>* TreeRemove(TreeNode<KEY, DATA>* v);
-	//removes the given node from the tree and returns his parent
+    //removes the given node from the tree and returns his parent
 
 	void SwapWithFollowing(TreeNode<KEY, DATA>& v);
 	//swaps the given node with the smallest node that is bigger that it
