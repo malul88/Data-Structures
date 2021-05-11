@@ -1,6 +1,7 @@
 
 #ifndef HW1_DS_H
 #define HW1_DS_H
+
 #include <exception>
 #include "AVLTree.h"
 #include "carModel.h"
@@ -13,22 +14,24 @@
 
 class DS {
 public:
-    AVLTree<int,carType*> types; //1
-    AVLTree<PriorityByGrade,carModel*> all_models; //2
-    AVLTree<int,AVLTree<int,carModel*>> all_zero_models; //3
-    AVLTree<PriorityBySale,carModel*> best_seller;
+    AVLTree<int, carType *> types; //1
+    AVLTree<PriorityByGrade, carModel *> all_models; //2
+    AVLTree<int, AVLTree<int, carModel *>> all_zero_models; //3
+    AVLTree<PriorityBySale, carModel *> best_seller; //4
     const int SALE_GRADE = 10;
 
     void addCarType(int typeID, int num_of_models);
+
     void removeCarType(int typeID, int modelID);
+
     void sellCar(int typeID, int modelID);
-    void fillTreeWithInorder(TreeNode<int,carModel*> * v,int typeId, int num_of_models,
-                             int* current_model);
+
+    void fillTreeWithInorder(TreeNode<int, carModel *> *v, int typeId, int num_of_models,
+                             int *current_model);
+
     void buildTreeAndAdd(int typeID, int num_of_models);
 
 };
-
-
 
 
 #endif //HW1_DS_H

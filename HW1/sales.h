@@ -9,6 +9,10 @@
 class PriorityBySale {
 public:
     int num_of_sales, typeID, modelID;
+
+    PriorityBySale(){};
+    PriorityBySale(int num_of_sales, int typeID, int modelID): num_of_sales(num_of_sales),
+            typeID(typeID), modelID(modelID){};
     bool operator>(PriorityBySale p) const;
     bool operator<(PriorityBySale p) const;
     bool operator==(PriorityBySale p) const;

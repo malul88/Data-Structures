@@ -1,10 +1,9 @@
-
 #include "DS.h"
 
 void DS::addCarType(int typeID, int num_of_models) {
     carType *car = new carType(typeID, num_of_models);            // a new car type
-
-    types.Add(typeID, car);
+    buildTreeAndAdd(typeID,num_of_models);          // add a sub tree with all models to zero_models
+    types.Add(typeID, car);         // add the type of the car to the types tree
 }
 
 void deleteModel(carModel *carModel) {
@@ -16,6 +15,7 @@ void DS::removeCarType(int typeID, int modelID) {
     zeroed_models->BackOrder(deleteModel);
     zeroed_models->TreeRemove(zeroed_models->GetHead());
     all_zero_models.Remove(typeID);
+    PriorityByGrade();
     types.Remove(typeID);
 }
 
@@ -38,7 +38,9 @@ void DS::fillTreeWithInorder(TreeNode<int, carModel *> *v, int typeID, int num_o
     }
     fillTreeWithInorder(v->left, typeID, num_of_models, current_model);
     v->key = *current_model;
-    v->data = new carModel(typeID, *current_model);
+    carModel* car = new carModel(typeID, *current_model);
+    v->data = car;
+    // todo add the adrees to models array in car type (if needed)
     *current_model = *current_model + 1;
     fillTreeWithInorder(v->right, typeID, num_of_models, current_model);
 }

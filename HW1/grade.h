@@ -6,7 +6,9 @@
 class PriorityByGrade {
 public:
     int grade, typeID, modelID;
-
+    PriorityByGrade(){};
+    PriorityByGrade(int grade, int typeID, int modelID): grade(grade),
+                                                               typeID(typeID), modelID(modelID){};
     bool operator<(PriorityByGrade p) const;
     bool operator>(PriorityByGrade p) const;
     bool operator==(PriorityByGrade p) const;

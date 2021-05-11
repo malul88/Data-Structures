@@ -26,7 +26,6 @@ public:
 
     void complainModel(int t);
 
-    void fillTreeWithInorder(TreeNode t );
 };
 
 
