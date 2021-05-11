@@ -107,6 +107,12 @@
 		<Unit filename="C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/car_type.h">
 			<Option target="HW1"/>
 		</Unit>
+		<Unit filename="C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/grade.cpp">
+			<Option target="HW1"/>
+		</Unit>
+		<Unit filename="C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/grade.h">
+			<Option target="HW1"/>
+		</Unit>
 		<Unit filename="C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/library.cpp">
 			<Option target="HW1"/>
 		</Unit>
@@ -114,6 +120,12 @@
 			<Option target="HW1"/>
 		</Unit>
 		<Unit filename="C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/main.cpp">
+			<Option target="HW1"/>
+		</Unit>
+		<Unit filename="C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/sales.cpp">
+			<Option target="HW1"/>
+		</Unit>
+		<Unit filename="C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/sales.h">
 			<Option target="HW1"/>
 		</Unit>
 		<Unit filename="C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/CMakeLists.txt">

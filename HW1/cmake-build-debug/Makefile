@@ -249,6 +249,33 @@ car_type.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/car_type.cpp.s
 .PHONY : car_type.cpp.s
 
+grade.obj: grade.cpp.obj
+
+.PHONY : grade.obj
+
+# target to build an object file
+grade.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/grade.cpp.obj
+.PHONY : grade.cpp.obj
+
+grade.i: grade.cpp.i
+
+.PHONY : grade.i
+
+# target to preprocess a source file
+grade.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/grade.cpp.i
+.PHONY : grade.cpp.i
+
+grade.s: grade.cpp.s
+
+.PHONY : grade.s
+
+# target to generate assembly for a file
+grade.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/grade.cpp.s
+.PHONY : grade.cpp.s
+
 library.obj: library.cpp.obj
 
 .PHONY : library.obj
@@ -303,6 +330,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+sales.obj: sales.cpp.obj
+
+.PHONY : sales.obj
+
+# target to build an object file
+sales.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/sales.cpp.obj
+.PHONY : sales.cpp.obj
+
+sales.i: sales.cpp.i
+
+.PHONY : sales.i
+
+# target to preprocess a source file
+sales.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/sales.cpp.i
+.PHONY : sales.cpp.i
+
+sales.s: sales.cpp.s
+
+.PHONY : sales.s
+
+# target to generate assembly for a file
+sales.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/sales.cpp.s
+.PHONY : sales.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -324,12 +378,18 @@ help:
 	@echo ... car_type.obj
 	@echo ... car_type.i
 	@echo ... car_type.s
+	@echo ... grade.obj
+	@echo ... grade.i
+	@echo ... grade.s
 	@echo ... library.obj
 	@echo ... library.i
 	@echo ... library.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... sales.obj
+	@echo ... sales.i
+	@echo ... sales.s
 .PHONY : help
 
 
