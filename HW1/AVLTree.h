@@ -121,7 +121,7 @@ private:
 	TreeNode<KEY, DATA>* max;
 	TreeNode<KEY, DATA>* min;
 
-	/**** Functions*****/
+	/****Private Functions*****/
 	void LL(TreeNode<KEY, DATA>&);
 	// performs an LL roll on the given node
 

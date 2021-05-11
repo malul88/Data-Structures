@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/HW1.dir/Execption.cpp.obj"
   "CMakeFiles/HW1.dir/carModel.cpp.obj"
   "CMakeFiles/HW1.dir/car_type.cpp.obj"
+  "CMakeFiles/HW1.dir/library.cpp.obj"
   "CMakeFiles/HW1.dir/main.cpp.obj"
   "HW1.exe"
   "HW1.exe.manifest"

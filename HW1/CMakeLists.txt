@@ -3,4 +3,4 @@ project(HW1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(HW1 main.cpp AVLTree.h carModel.h carModel.cpp library.h car_type.cpp DS.cpp DS.h Execption.cpp Execption.h)
+add_executable(HW1 main.cpp AVLTree.h carModel.h carModel.cpp library.h car_type.cpp DS.cpp DS.h Execption.cpp Execption.h library.cpp)

@@ -249,6 +249,33 @@ car_type.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/car_type.cpp.s
 .PHONY : car_type.cpp.s
 
+library.obj: library.cpp.obj
+
+.PHONY : library.obj
+
+# target to build an object file
+library.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/library.cpp.obj
+.PHONY : library.cpp.obj
+
+library.i: library.cpp.i
+
+.PHONY : library.i
+
+# target to preprocess a source file
+library.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/library.cpp.i
+.PHONY : library.cpp.i
+
+library.s: library.cpp.s
+
+.PHONY : library.s
+
+# target to generate assembly for a file
+library.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\HW1.dir\build.make CMakeFiles/HW1.dir/library.cpp.s
+.PHONY : library.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -297,6 +324,9 @@ help:
 	@echo ... car_type.obj
 	@echo ... car_type.i
 	@echo ... car_type.s
+	@echo ... library.obj
+	@echo ... library.i
+	@echo ... library.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
