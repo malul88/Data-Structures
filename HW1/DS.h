@@ -10,9 +10,9 @@
 
 class DS {
 public:
-    AVLTree<int,carType> types;
-    AVLTree<int,carModel*> all_models;
-    AVLTree<int,AVLTree<int,carModel*>> all_zero_models;
+    AVLTree<int,carType> types; //1
+    AVLTree<int,carModel*> all_models; //2
+    AVLTree<int,AVLTree<int,carModel*>> all_zero_models; //3
     carModel* best_seller;
     const int SALE_GRADE = 10;
 

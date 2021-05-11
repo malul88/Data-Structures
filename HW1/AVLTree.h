@@ -49,8 +49,13 @@ public:
 
 template<class KEY, class DATA>
 class AVLTree {
-public:
+private:
+    TreeNode<KEY, DATA>* head;
+    int NumOfNodes;
+    TreeNode<KEY, DATA>* max;
+    TreeNode<KEY, DATA>* min;
 
+public:
 	AVLTree() :
 			head(NULL), NumOfNodes(0), max(NULL), min(NULL) {
 	}
@@ -115,13 +120,8 @@ public:
 	// returns the head of the tree
     TreeNode<KEY, DATA>* TreeRemove(TreeNode<KEY, DATA>* v);
 
-private:
-	TreeNode<KEY, DATA>* head;
-	int NumOfNodes;
-	TreeNode<KEY, DATA>* max;
-	TreeNode<KEY, DATA>* min;
 
-	/****Private Functions*****/
+	/****Functions*****/
 	void LL(TreeNode<KEY, DATA>&);
 	// performs an LL roll on the given node
 
