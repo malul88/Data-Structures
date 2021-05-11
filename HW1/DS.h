@@ -5,6 +5,7 @@
 #include "AVLTree.h"
 #include "carModel.h"
 #include "car_type.h"
+#include "Execption.h"
 
 class DS {
 public:

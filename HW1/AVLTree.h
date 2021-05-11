@@ -2,7 +2,7 @@
 #ifndef AVLTREE_H_
 #define AVLTREE_H_
 #include <iostream>
-#include <stdexcept>
+#include "Execption.h"
 
 
 #define LROLL 2
@@ -188,7 +188,7 @@ private:
 	void InOrder(TreeNode<KEY, DATA>* v, KEY* arr, int* i);	//TODO
 	//does inorder on the tree of v and returns the keys in array,array must be allocated TODO
 	template<class Function>
-	void BackOrderRec(TreeNode<KEY, DATA>* v, Function& func);
+	void BackOrderRec(TreeNode<KEY, DATA>* v, Function func);
 	// does the opposite of inorder on all the nodes using a given function class
 
 	//basel functions
@@ -211,7 +211,7 @@ template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::Remove(const KEY& key) {
 	TreeNode<KEY, DATA>* v = FindPlace(key);
 	if (v == NULL || v->key != key) {	//the key isnt in the tree
-		throw STORE_EXCEPTIONS::KEY_NOT_EXIST();
+		throw KeyNotExist();
 	}
 	TreeNode<KEY, DATA>* parent = TreeRemove(v); //removing
 	this->NumOfNodes--;
@@ -495,7 +495,7 @@ void AVLTree<KEY, DATA>::BackOrder(Function& func) {
 
 template<class KEY, class DATA>
 template<class Function>
-void AVLTree<KEY, DATA>::BackOrderRec(TreeNode<KEY, DATA>* v, Function& func) {
+void AVLTree<KEY, DATA>::BackOrderRec(TreeNode<KEY, DATA>* v, Function func) {
 	if (!v) {
 		return;
 	}
@@ -526,7 +526,7 @@ void AVLTree<KEY, DATA>::InOrder(TreeNode<KEY, DATA>* v, KEY* arr, int* i) {
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::CheckEmptyTree() const {
 	if (NumOfNodes == 0) {
-		throw STORE_EXCEPTIONS::TREE_EMPTY();
+		throw TreeEmpty();
 	}
 }
 
@@ -562,7 +562,7 @@ template<class KEY, class DATA>
 DATA* AVLTree<KEY, DATA>::Add(const KEY& key, const DATA& data) {
 	TreeNode<KEY, DATA>* parent = FindPlace(key);
 	if (parent != NULL && parent->key == key) { // then the key is in the tree
-		throw STORE_EXCEPTIONS::KEY_ALREADY_EXIST();
+		throw KeyAlreadyExist();
 	}
 	TreeNode<KEY, DATA>* newkey = new TreeNode<KEY, DATA>(key, data);
 	if (parent == NULL) {

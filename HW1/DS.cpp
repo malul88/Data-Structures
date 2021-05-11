@@ -12,13 +12,17 @@ void DS::addCarType(int typeID, int num_of_models) {
     all_zero_models.Add(typeID,zero_new_models);
     types.Add(typeID,car);
 }
-
+void deleteModel(carModel* carModel){
+    delete carModel;
+}
 
 void DS::removeCarType(int typeID, int modelID) {
     AVLTree<int,carModel*>* zeroed_models = all_zero_models.Find(typeID);
+    zeroed_models->BackOrder(deleteModel);
     zeroed_models->TreeRemove(zeroed_models->GetHead());
     all_zero_models.Remove(typeID);
     types.Remove(typeID);
 }
+
 
 
