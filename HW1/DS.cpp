@@ -133,5 +133,69 @@ void DS::getBestSellerModelByType(int typeID, int *modelID) {
     }
 }
 
+void DS::getWorstModels(int num_of_models, int *car_types, int *models) {
+
+
+}
+
+void DS::inorderAllModels(TreeNode<PriorityByGrade, carModel *> *v, int num_of_models, int *car_types, int *models, int *counter) {
+    if (v == nullptr || *counter == num_of_models){
+        return;
+    }
+    inorderAllModels(v->left, num_of_models, car_types, models, counter);
+    if (v->data->grade > 0){
+        inorderAllZeroTypes(all_zero_models.head, num_of_models, car_types, models, counter);
+    }
+    if (*counter == num_of_models){
+        return;
+    }
+    *car_types = v->data->typeID;
+    *models = v->data->modelID;
+    car_types++;
+    models++;
+    *counter = *counter + 1;
+    inorderAllModels(v->right, num_of_models, car_types, models, counter);
+}
+
+void DS::inorderAllZeroTypes(TreeNode<int, AVLTree<int, carModel *>> *v, int num_of_models, int *car_types, int *models, int *counter) {
+    if (v == nullptr || *counter == num_of_models){
+        return;
+    }
+    inorderAllZeroTypes(v->left, num_of_models, car_types, models, counter);
+    inorderAllZeroModels(v->data.head, num_of_models, car_types, models, counter);
+    inorderAllZeroTypes(v->right, num_of_models, car_types, models, counter);
+}
+
+void DS::inorderAllZeroModels(TreeNode<int, carModel *> *v, int num_of_models, int *car_types, int *models, int *counter) {
+    if (v == nullptr || *counter == num_of_models){
+        return;
+    }
+    inorderAllZeroModels(v->left, num_of_models, car_types, models, counter);
+    *car_types = v->data->typeID;
+    *models = v->data->modelID;
+    car_types++;
+    models++;
+    *counter = *counter + 1;
+    inorderAllZeroModels(v->right, num_of_models, car_types, models, counter);
+}
+
+void DS::quit() {
+    postOrderDelete(types.head);
+}
+
+void DS::postOrderDelete(TreeNode<int, carType >* v) {
+    if (v == nullptr){
+        return;
+    }
+    postOrderDelete(v->left);
+    postOrderDelete(v->right);
+    for (int i = 0; i < v->data.num_of_models ; ++i) {
+        delete v->data.models[i];
+    }
+    delete v;
+}
+
+
+
 
 

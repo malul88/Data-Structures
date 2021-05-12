@@ -30,13 +30,24 @@ public:
 
     void getBestSellerModelByType(int typeID, int* modelID);
 
+    void getWorstModels(int num_of_models, int* types,int * models);
+
     void fillTreeWithInorder(TreeNode<int, carModel *> *v, int typeId, int num_of_models,
                              int *current_model, carType* carType);
+
+    void inorderAllModels(TreeNode<PriorityByGrade,carModel*> * v ,int num_of_models, int* car_types,int * models, int* counter);
+
+    void inorderAllZeroTypes(TreeNode<int, AVLTree<int, carModel *>> * v, int num_of_models, int *car_types, int *models, int* counter);
+
+    void inorderAllZeroModels(TreeNode<int,carModel*> * v, int num_of_models, int *car_types, int *models, int* counter);
+
+    void quit();
+
+    void postOrderDelete(TreeNode<int, carType> * v);
 
     void buildTreeAndAdd(int typeID, int num_of_models, carType* carType);
 
     void updateBestSellerByType(carType* type, int modelID);
-
 };
 
 
