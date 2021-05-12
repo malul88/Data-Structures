@@ -31,6 +31,8 @@ public:
 
     void buildTreeAndAdd(int typeID, int num_of_models, carType* carType);
 
+    void updateBestSellerByType(carType* type, int modelID);
+
 };
 
 

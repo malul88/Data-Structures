@@ -134,7 +134,6 @@ public:
     void makeTreeAlmostComplete(TreeNode<KEY, DATA> *v, int h, int *leafs_to_del);
 
 
-
     /****Functions*****/
     void LL(TreeNode<KEY, DATA> &);
     // performs an LL roll on the given node
@@ -644,17 +643,19 @@ void AVLTree<KEY, DATA>::makeTreeAlmostComplete(TreeNode<KEY, DATA> *v, int h, i
         return;
     }
     makeTreeAlmostComplete(v->right, h - 1, leafs_to_del);
-    if (h == 0) {
+    if (h == 1) {
         delete v->right;
+        v->right = nullptr;
         *leafs_to_del = *leafs_to_del - 1;
         if (*leafs_to_del > 0) {
             delete v->left;
+            v->left = nullptr;
             *leafs_to_del = *leafs_to_del - 1;
         }
     }
     makeTreeAlmostComplete(v->left, h - 1, leafs_to_del);
-}
 
+}
 
 
 #endif /* AVLTREE_H_ */
