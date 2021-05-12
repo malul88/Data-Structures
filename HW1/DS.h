@@ -19,6 +19,9 @@ public:
     AVLTree<int, AVLTree<int, carModel *>> all_zero_models; //3
     AVLTree<PriorityBySale, carModel *> best_seller; //4
     const int SALE_GRADE = 10;
+    int total_cars;
+
+    DS(): total_cars(0){}
 
     void addCarType(int typeID, int num_of_models);
 

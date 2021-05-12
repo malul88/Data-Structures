@@ -4,6 +4,7 @@ void DS::addCarType(int typeID, int num_of_models) {
     carType new_car = carType(typeID, num_of_models);            // a new car type
     buildTreeAndAdd(typeID, num_of_models, &new_car);          // add a sub tree with all models to zero_models
     types.Add(typeID, new_car);         // add the type of the car to the types tree
+    total_cars += num_of_models;
 }
 
 void deleteModel(carModel *carModel) {
@@ -12,6 +13,10 @@ void deleteModel(carModel *carModel) {
 
 void DS::removeCarType(int typeID) {
     carType *type = types.Find(typeID);
+    if (!type){
+        throw KeyNotExist();
+    }
+    total_cars -= type->num_of_models;
     for (int i = 0; i < type->num_of_models; ++i) {
         PriorityBySale ps(type->models[i]->num_of_sales, type->typeID, type->models[i]->modelID);
         PriorityByGrade pg(type->models[i]->grade, type->typeID, type->models[i]->modelID);
@@ -23,10 +28,14 @@ void DS::removeCarType(int typeID) {
     zeroed_models->TreeRemove(zeroed_models->GetHead());
     all_zero_models.Remove(typeID);
     types.Remove(typeID);
+
 }
 
 void DS::sellCar(int typeID, int modelID) {
     carType *type = types.Find(typeID);
+    if (!type){
+        throw KeyNotExist();
+    }
     bool is_zero = type->models[modelID]->grade == 0;
     bool is_saled = type->models[modelID]->num_of_sales != 0;
     if (!is_zero) {                       // if not in  zero models (remove from models)
@@ -101,6 +110,9 @@ void DS::updateBestSellerByType(carType *type, int modelID) {
 
 void DS::makeComplaint(int typeID, int modelID, int t) {
     carType *type = types.Find(typeID);
+    if (!type){
+        throw KeyNotExist();
+    }
     PriorityByGrade old_pg(type->models[modelID]->grade, typeID, modelID);
     type->models[modelID]->complainModel(t);
     PriorityByGrade new_pg(type->models[modelID]->grade, typeID, modelID);
@@ -129,13 +141,19 @@ void DS::getBestSellerModelByType(int typeID, int *modelID) {
         *modelID = best_seller.GetMaxKey().modelID;
     } else{
         carType *type = types.Find(typeID);
+        if (!type){
+            throw KeyNotExist();
+        }
         *modelID = type->best_seller;
     }
 }
 
 void DS::getWorstModels(int num_of_models, int *car_types, int *models) {
-
-
+    if (num_of_models > total_cars){
+        throw NotEnoughCars();
+    }
+    int counter = 0;
+    inorderAllModels(all_models.head,num_of_models, car_types, models, &counter);
 }
 
 void DS::inorderAllModels(TreeNode<PriorityByGrade, carModel *> *v, int num_of_models, int *car_types, int *models, int *counter) {

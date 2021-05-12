@@ -1,6 +1,7 @@
 #include <iostream>
 #include "car_type.h"
 #include "avlTree.h"
+#include "library.h"
 
 
 int main() {

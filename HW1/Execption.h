@@ -12,6 +12,10 @@ class KeyAlreadyExist : public Exception {
 };
 class KeyNotExist : public Exception {
 };
+class AllocationError : public Exception {
+};
+class NotEnoughCars : public Exception {
+};
 
 
 
