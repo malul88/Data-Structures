@@ -26,6 +26,10 @@ public:
 
     void sellCar(int typeID, int modelID);
 
+    void makeComplaint(int typeID, int modelID, int t);
+
+    void getBestSellerModelByType(int typeID, int* modelID);
+
     void fillTreeWithInorder(TreeNode<int, carModel *> *v, int typeId, int num_of_models,
                              int *current_model, carType* carType);
 
