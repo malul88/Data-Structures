@@ -14,7 +14,7 @@
 
 class DS {
 public:
-    AVLTree<int, carType *> types; //1
+    AVLTree<int, carType > types; //1
     AVLTree<PriorityByGrade, carModel *> all_models; //2
     AVLTree<int, AVLTree<int, carModel *>> all_zero_models; //3
     AVLTree<PriorityBySale, carModel *> best_seller; //4
@@ -22,14 +22,14 @@ public:
 
     void addCarType(int typeID, int num_of_models);
 
-    void removeCarType(int typeID, int modelID);
+    void removeCarType(int typeID);
 
     void sellCar(int typeID, int modelID);
 
     void fillTreeWithInorder(TreeNode<int, carModel *> *v, int typeId, int num_of_models,
-                             int *current_model);
+                             int *current_model, carType* carType);
 
-    void buildTreeAndAdd(int typeID, int num_of_models);
+    void buildTreeAndAdd(int typeID, int num_of_models, carType* carType);
 
 };
 

@@ -10,7 +10,7 @@ public:
     int typeID;
     int num_of_models;
     carModel **models;
-    carModel *best_seller;
+    int best_seller;
 
 
     carType() : models(nullptr), best_seller(nullptr) {};
