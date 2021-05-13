@@ -14,6 +14,7 @@
 #ifndef _234218_WET1
 #define _234218_WET1
 
+#include "AVLTree.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -34,9 +35,9 @@ StatusType AddCarType(void *DS, int typeID, int numOfModels);
 
 StatusType RemoveCarType(void *DS, int typeID);
 
-StatusType sellCar(void *DS, int typeID, int modelID);
+StatusType SellCar(void *DS, int typeID, int modelID);
 
-StatusType makeComplaint(void *DS, int typeID, int modelID, int t);
+StatusType MakeComplaint(void *DS, int typeID, int modelID, int t);
 
 StatusType GetBestSellerModelByType(void *DS, int typeID, int * modelID);
 

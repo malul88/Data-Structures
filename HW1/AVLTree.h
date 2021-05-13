@@ -131,6 +131,7 @@ public:
 
     void completeTree(TreeNode<KEY, DATA> *v, int h);
 
+
     void makeTreeAlmostComplete(TreeNode<KEY, DATA> *v, int h, int *leafs_to_del);
 
 
@@ -211,6 +212,7 @@ public:
 
     /**** Functions*****/
 
+    void removeTree(TreeNode<KEY,DATA> * head);
 };
 
 template<class T>
@@ -353,7 +355,7 @@ void AVLTree<KEY, DATA>::RemoveOneSonNode(TreeNode<KEY, DATA> &v) {
 
     TreeNode<KEY, DATA> *son = v.right != NULL ? v.right : v.left;
     SwitchSon(&v, son); //let son become the son of the parent of v
-    son->parent = v.parent;
+    son->parent = v.parent; //todo making problem
     UpdateHeight(v.parent);
 
 }
@@ -639,7 +641,7 @@ void AVLTree<KEY, DATA>::completeTree(TreeNode<KEY, DATA> *v, int h) {
 
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::makeTreeAlmostComplete(TreeNode<KEY, DATA> *v, int h, int *leafs_to_del) {
-    if (v == nullptr || leafs_to_del == 0) {
+    if (v == nullptr || *leafs_to_del == 0) {
         return;
     }
     makeTreeAlmostComplete(v->right, h - 1, leafs_to_del);
@@ -654,6 +656,17 @@ void AVLTree<KEY, DATA>::makeTreeAlmostComplete(TreeNode<KEY, DATA> *v, int h, i
         }
     }
     makeTreeAlmostComplete(v->left, h - 1, leafs_to_del);
+
+}
+
+template<class KEY, class DATA>
+void AVLTree<KEY, DATA>::removeTree(TreeNode<KEY,DATA> * v) {
+    if (v == nullptr){
+        return;
+    }
+    removeTree(v->left);
+    removeTree(v->right);
+    delete v;
 
 }
 

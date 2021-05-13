@@ -7,6 +7,7 @@
 #include "carModel.h"
 #include "car_type.h"
 #include "Execption.h"
+#include <exception>
 #include "grade.h"
 #include "sales.h"
 #include "math.h"
@@ -14,9 +15,9 @@
 
 class DS {
 public:
-    AVLTree<int, carType > types; //1
+    AVLTree<int, carType* > types; //1
     AVLTree<PriorityByGrade, carModel *> all_models; //2
-    AVLTree<int, AVLTree<int, carModel *>> all_zero_models; //3
+    AVLTree<int, AVLTree<int, carModel *>*> all_zero_models; //3
     AVLTree<PriorityBySale, carModel *> best_seller; //4
     const int SALE_GRADE = 10;
     int total_cars;
@@ -40,13 +41,13 @@ public:
 
     void inorderAllModels(TreeNode<PriorityByGrade,carModel*> * v ,int num_of_models, int* car_types,int * models, int* counter);
 
-    void inorderAllZeroTypes(TreeNode<int, AVLTree<int, carModel *>> * v, int num_of_models, int *car_types, int *models, int* counter);
+    void inorderAllZeroTypes(TreeNode<int, AVLTree<int, carModel *>*> * v, int num_of_models, int *car_types, int *models, int* counter);
 
     void inorderAllZeroModels(TreeNode<int,carModel*> * v, int num_of_models, int *car_types, int *models, int* counter);
 
     void quit();
 
-    void postOrderDelete(TreeNode<int, carType> * v);
+    void postOrderDelete(TreeNode<int, carType*> * v);
 
     void buildTreeAndAdd(int typeID, int num_of_models, carType* carType);
 

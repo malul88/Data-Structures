@@ -10,7 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/car_type.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/car_type.cpp.obj"
   "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/grade.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/grade.cpp.obj"
   "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/library.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/library.cpp.obj"
-  "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/main.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/main.cpp.obj"
+  "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/main1.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/main1.cpp.obj"
   "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/sales.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/sales.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

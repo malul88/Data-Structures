@@ -37,11 +37,11 @@ CMakeFiles/HW1.dir/library.cpp.obj: ../library.cpp
 CMakeFiles/HW1.dir/library.cpp.obj: ../library.h
 CMakeFiles/HW1.dir/library.cpp.obj: ../sales.h
 
-CMakeFiles/HW1.dir/main.cpp.obj: ../AVLTree.h
-CMakeFiles/HW1.dir/main.cpp.obj: ../Execption.h
-CMakeFiles/HW1.dir/main.cpp.obj: ../carModel.h
-CMakeFiles/HW1.dir/main.cpp.obj: ../car_type.h
-CMakeFiles/HW1.dir/main.cpp.obj: ../main.cpp
+CMakeFiles/HW1.dir/main1.cpp.obj: ../AVLTree.h
+CMakeFiles/HW1.dir/main1.cpp.obj: ../Execption.h
+CMakeFiles/HW1.dir/main1.cpp.obj: ../carModel.h
+CMakeFiles/HW1.dir/main1.cpp.obj: ../library.h
+CMakeFiles/HW1.dir/main1.cpp.obj: ../main1.cpp
 
 CMakeFiles/HW1.dir/sales.cpp.obj: ../sales.cpp
 CMakeFiles/HW1.dir/sales.cpp.obj: ../sales.h

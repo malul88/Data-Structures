@@ -32,7 +32,7 @@ StatusType RemoveCarType(void *Ds, int typeID){
     return SUCCESS;
 }
 
-StatusType sellCar(void *Ds, int typeID, int modelID){
+StatusType SellCar(void *Ds, int typeID, int modelID){
     if (!Ds || typeID <= 0 || modelID < 0){
         return INVALID_INPUT;
     }
@@ -45,7 +45,7 @@ StatusType sellCar(void *Ds, int typeID, int modelID){
     }
     return SUCCESS;
 }
-StatusType makeComplaint(void *Ds, int typeID, int modelID, int t){
+StatusType MakeComplaint(void *Ds, int typeID, int modelID, int t){
     if (!Ds || typeID <= 0 || modelID < 0){
         return INVALID_INPUT;
     }
