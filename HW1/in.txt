@@ -12,3 +12,9 @@ MakeComplaint 10 2 5
 GetBestSellerModelByType 10
 GetWorstModels 3
 Quit
+Init
+AddCarType 10 8
+SellCar 10 0
+MakeComplaint 10 0 10
+GetWorstModels 3
+Quit

@@ -355,7 +355,7 @@ void AVLTree<KEY, DATA>::RemoveOneSonNode(TreeNode<KEY, DATA> &v) {
 
     TreeNode<KEY, DATA> *son = v.right != NULL ? v.right : v.left;
     SwitchSon(&v, son); //let son become the son of the parent of v
-    son->parent = v.parent; //todo making problem
+    son->parent = v.parent;
     UpdateHeight(v.parent);
 
 }

@@ -37,7 +37,7 @@ void DS::removeCarType(int typeID) {
 
 void DS::sellCar(int typeID, int modelID) {
     carType **type = types.Find(typeID);
-    if (!type){
+    if (!type || (*type)->num_of_models <= modelID){
         throw KeyNotExist();
     }
     bool is_zero = (*type)->models[modelID]->grade == 0;
@@ -161,7 +161,11 @@ void DS::getWorstModels(int num_of_models, int *car_types, int *models) {
     int counter = 0;
     int * cat_types_ptr = car_types;
     int * models_ptr = models;
-    inorderAllModels(all_models.head,num_of_models, cat_types_ptr, models_ptr, &counter);
+    if (all_models.head){ // Check if All models tree is empty
+        inorderAllModels(all_models.head,num_of_models, cat_types_ptr, models_ptr, &counter);
+    } else {
+        inorderAllZeroTypes(all_zero_models.head, num_of_models, cat_types_ptr, models_ptr, &counter);
+    }
 }
 
 void DS::inorderAllModels(TreeNode<PriorityByGrade, carModel *> *v, int num_of_models, int *car_types, int *models, int *counter) {
