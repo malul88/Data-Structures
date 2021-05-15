@@ -1,9 +1,9 @@
 #include "DS.h"
 
 void DS::addCarType(int typeID, int num_of_models) {
-    carType* new_car = new carType(typeID, num_of_models);            // a new car type
-    buildTreeAndAdd(typeID, num_of_models, new_car);          // add a sub tree with all models to zero_models
-    types.Add(typeID, new_car);         // add the type of the car to the types tree
+    carType* new_car = new carType(typeID, num_of_models);            // A new Car type
+    buildTreeAndAdd(typeID, num_of_models, new_car);          // Add a sub tree with all models to zero_models
+    types.Add(typeID, new_car);         // Add the type of the Car to the types tree
     total_cars += num_of_models;
 }
 
@@ -28,7 +28,7 @@ void DS::removeCarType(int typeID) {
         }
         delete (*type)->models[i];
     }
-    AVLTree<int, carModel *> ** zeroed_models = all_zero_models.Find(typeID); //sub_tree of all_zero_models
+    AVLTree<int, carModel *> ** zeroed_models = all_zero_models.Find(typeID); // Sub_tree of all_zero_models
     (*zeroed_models)->removeTree((*zeroed_models)->GetHead());
     all_zero_models.Remove(typeID);
     types.Remove(typeID);
@@ -42,15 +42,15 @@ void DS::sellCar(int typeID, int modelID) {
     }
     bool is_zero = (*type)->models[modelID]->grade == 0;
     bool is_saled = (*type)->models[modelID]->num_of_sales != 0;
-    if (!is_zero) {                       // if not in  zero models (remove from models)
+    if (!is_zero) {                       // If not in zero models (remove from models)
         PriorityByGrade old_pg((*type)->models[modelID]->grade, (*type)->models[modelID]->typeID,
                                (*type)->models[modelID]->modelID);
         all_models.Remove(old_pg);
-    } else {                       // if is in zero models (needs to remove)
+    } else {                       // If is in zero models (needs to remove)
         AVLTree<int, carModel *> **current_zero_tree = all_zero_models.Find(typeID);
         (*current_zero_tree)->Remove(modelID);
     }
-    if (is_saled) {   // if been sales before (remove from best seller)
+    if (is_saled) {   // If been sales before (remove from best seller)
         PriorityBySale old_ps((*type)->models[modelID]->num_of_sales, (*type)->models[modelID]->typeID,
                               (*type)->models[modelID]->modelID);
         best_seller.Remove(old_ps);
@@ -64,7 +64,7 @@ void DS::sellCar(int typeID, int modelID) {
         PriorityByGrade new_pg((*type)->models[modelID]->grade, (*type)->models[modelID]->typeID,
                                (*type)->models[modelID]->modelID);
         all_models.Add(new_pg, (*type)->models[modelID]);
-    } // always put in best seller regardless
+    } // Always put in Best seller regardless
     PriorityBySale new_ps((*type)->models[modelID]->num_of_sales, (*type)->models[modelID]->typeID,
                           (*type)->models[modelID]->modelID);
     best_seller.Add(new_ps, (*type)->models[modelID]);
