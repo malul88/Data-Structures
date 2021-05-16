@@ -116,7 +116,7 @@ void DS::updateBestSellerByType(carType *type, int modelID) {
 
 void DS::makeComplaint(int typeID, int modelID, int t) {
     carType **type = types.Find(typeID);
-    if (!type){
+    if (!type || (*type)->num_of_models <= modelID){
         throw KeyNotExist();
     }
     PriorityByGrade old_pg((*type)->models[modelID]->grade, typeID, modelID);
