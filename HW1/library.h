@@ -13,7 +13,6 @@
 
 #ifndef _234218_WET1
 #define _234218_WET1
-
 #include "AVLTree.h"
 #ifdef __cplusplus
 extern "C" {

@@ -39,7 +39,6 @@ CMakeFiles/HW1.dir/library.cpp.obj: ../sales.h
 
 CMakeFiles/HW1.dir/main1.cpp.obj: ../AVLTree.h
 CMakeFiles/HW1.dir/main1.cpp.obj: ../Execption.h
-CMakeFiles/HW1.dir/main1.cpp.obj: ../carModel.h
 CMakeFiles/HW1.dir/main1.cpp.obj: ../library.h
 CMakeFiles/HW1.dir/main1.cpp.obj: ../main1.cpp
 

@@ -87,7 +87,6 @@ int main(int argc, const char**argv) {
 
     char buffer[MAX_STRING_INPUT_SIZE];
 
-
     // Reading commands
     while (fgets(buffer, MAX_STRING_INPUT_SIZE, stdin) != NULL) {
         fflush(stdout);
@@ -297,8 +296,8 @@ static errorType OnGetWorstModels(void* DS, const char* const command) {
         return error_free;
     }
 
-    printf("%s: %s\n", commandStr[GETWORSTMODELS_CMD], ReturnValToStr(res));
 
+    printf("--Start of worst models--\n");
     printf("CarType\t|\tModel\n");
 
     for (int i = 0; i < numOfModels; i++)
@@ -306,7 +305,8 @@ static errorType OnGetWorstModels(void* DS, const char* const command) {
         printf("%d\t|\t%d\n", types[i], models[i]);
     }
 
-    printf("--End of worst types--\n");
+    printf("--End of worst models--\n");
+    printf("%s: %s\n", commandStr[GETWORSTMODELS_CMD], ReturnValToStr(res));
 
     if (types != NULL) free(types);
     if (models != NULL) free(models);

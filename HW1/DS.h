@@ -21,8 +21,9 @@ public:
     AVLTree<PriorityBySale, carModel *> best_seller; //4
     const int SALE_GRADE = 10;
     int total_cars;
+    bool been_in_zero;
 
-    DS(): total_cars(0){}
+    DS(): total_cars(0) , been_in_zero(false){}
 
     void addCarType(int typeID, int num_of_models);
 

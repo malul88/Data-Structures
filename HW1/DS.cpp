@@ -166,6 +166,7 @@ void DS::getWorstModels(int num_of_models, int *car_types, int *models) {
     } else {
         inorderAllZeroTypes(all_zero_models.head, num_of_models, cat_types_ptr, models_ptr, &counter);
     }
+    been_in_zero = false;
 }
 
 void DS::inorderAllModels(TreeNode<PriorityByGrade, carModel *> *v, int num_of_models, int *car_types, int *models, int *counter) {
@@ -173,7 +174,7 @@ void DS::inorderAllModels(TreeNode<PriorityByGrade, carModel *> *v, int num_of_m
         return;
     }
     inorderAllModels(v->left, num_of_models, car_types, models, counter);
-    if (v->data->grade > 0){
+    if (v->data->grade > 0 && !been_in_zero){
         TreeNode<int,AVLTree<int, carModel*>*> *head = all_zero_models.head;
         inorderAllZeroTypes(head, num_of_models, car_types, models, counter);
     }
@@ -189,6 +190,7 @@ void DS::inorderAllModels(TreeNode<PriorityByGrade, carModel *> *v, int num_of_m
 
 void DS::inorderAllZeroTypes(TreeNode<int, AVLTree<int, carModel *>*> *v, int num_of_models, int *car_types, int *models, int *counter) {
     if (v == nullptr || *counter >= num_of_models){
+        been_in_zero = true;
         return;
     }
     inorderAllZeroTypes(v->left, num_of_models, car_types, models, counter);
