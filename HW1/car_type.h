@@ -16,8 +16,8 @@ public:
     carType() : models(nullptr), best_seller(0) {};
 
     carType(int typeID, int num_of_models) : typeID(typeID), num_of_models(num_of_models),
-                                             best_seller(0),best_num_of_sales(0) {
-        carModel** array_of_models = new carModel *[num_of_models];
+                                             best_seller(0), best_num_of_sales(0) {
+        carModel **array_of_models = new carModel *[num_of_models];
         this->models = array_of_models;
     }
 

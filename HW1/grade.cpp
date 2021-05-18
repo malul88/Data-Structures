@@ -5,14 +5,14 @@
 #include "grade.h"
 
 bool PriorityByGrade::operator<(PriorityByGrade p) const {
-    if (grade < p.grade){
+    if (grade < p.grade) {
         return true;
-    } else if ( grade > p.grade){
+    } else if (grade > p.grade) {
         return false;
     } else {
-        if (typeID < p.typeID ){
+        if (typeID < p.typeID) {
             return true;
-        } else if (typeID > p.typeID){
+        } else if (typeID > p.typeID) {
             return false;
         } else
             return modelID < p.modelID;
@@ -20,14 +20,14 @@ bool PriorityByGrade::operator<(PriorityByGrade p) const {
 }
 
 bool PriorityByGrade::operator>(PriorityByGrade p) const {
-    if (grade > p.grade){
+    if (grade > p.grade) {
         return true;
-    } else if ( grade < p.grade){
+    } else if (grade < p.grade) {
         return false;
     } else {
-        if (typeID > p.typeID ){
+        if (typeID > p.typeID) {
             return true;
-        } else if (typeID < p.typeID){
+        } else if (typeID < p.typeID) {
             return false;
         } else
             return modelID > p.modelID;

@@ -28,7 +28,7 @@ public:
 
     TreeNode() :
             key(), data(), height(0), left(NULL), right(NULL),
-            parent(NULL),rank(0),sum_power(0) {
+            parent(NULL), rank(0), sum_power(0) {
     }
 
     TreeNode(KEY key, DATA data) :
@@ -68,6 +68,7 @@ public:
     AVLTree() :
             head(NULL), NumOfNodes(0), max(NULL), min(NULL) {
     };
+
     ~AVLTree();
 
     int GetSize() const {
@@ -93,7 +94,7 @@ public:
     // arr starts , and in the end will hold the index of the last
 
     template<class Function>
-    void BackOrder(Function &func,DATA* arr);
+    void BackOrder(Function &func, DATA *arr);
     // does the opposite od in order on all nodes using a given function class
 
     template<class Function>
@@ -130,6 +131,7 @@ public:
     TreeNode<KEY, DATA> *GetHead() {
         return head;
     }
+
     // returns the head of the tree
 //    void UpdateMax
     TreeNode<KEY, DATA> *head;
@@ -150,7 +152,7 @@ public:
     void RL(TreeNode<KEY, DATA> &);
     // performs an RL roll on the given node
 
-    TreeNode<KEY, DATA> *FindPlace(const KEY &key,int x) const;
+    TreeNode<KEY, DATA> *FindPlace(const KEY &key, int x) const;
     // returns  the node with the given key , if he is not found
     // returns the node that should be his parent,returns NULL if the tree is empty
 
@@ -205,23 +207,22 @@ public:
     void InOrder(TreeNode<KEY, DATA> *v, KEY *arr, int *i);
     //does inorder on the tree of v and returns the keys in array,array must be allocated TODO
 
-    void removeTree(TreeNode<KEY,DATA> * head);
+    void removeTree(TreeNode<KEY, DATA> *head);
 
     void completeTree(TreeNode<KEY, DATA> *v, int h);
 
     void makeTreeAlmostComplete(TreeNode<KEY, DATA> *v, int h, int *leafs_to_del);
 
 
-
     /////////////////////////////////////////////////////////////////////////////////////////////
     template<class Function>
-    void BackOrderRec(TreeNode<KEY, DATA> *v, Function& func,
-                      DATA* arr);
+    void BackOrderRec(TreeNode<KEY, DATA> *v, Function &func,
+                      DATA *arr);
     // does the opposite of inorder on all the nodes using a given function class
     //basel functions
 
     template<class Function>
-    void BackOrderRec(TreeNode<KEY, DATA> *v,Function& func);
+    void BackOrderRec(TreeNode<KEY, DATA> *v, Function &func);
     ///////////////////////////////////////////////////////////////////////////////////////////
 
     static void TreeDeleteAux(TreeNode<KEY, DATA> *head);
@@ -241,7 +242,7 @@ void Swap(T &a, T &b) {
 
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::Remove(const KEY &key) {
-    TreeNode<KEY, DATA> *v = FindPlace(key,-1);
+    TreeNode<KEY, DATA> *v = FindPlace(key, -1);
     if (v == NULL || (v->key) != key) {    // The key isn't in the tree
         throw KeyNotExist();
     }
@@ -374,7 +375,7 @@ void AVLTree<KEY, DATA>::RemoveOneSonNode(TreeNode<KEY, DATA> &v) {
 
     TreeNode<KEY, DATA> *son = v.right != NULL ? v.right : v.left;
     SwitchSon(&v, son); //let son become the son of the parent of v
-    if(son){
+    if (son) {
         son->parent = v.parent;
         UpdateHeight(v.parent);
     }
@@ -443,7 +444,7 @@ void AVLTree<KEY, DATA>::DoRoll(TreeNode<KEY, DATA> *v) {
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::RR(TreeNode<KEY, DATA> &v) {
     TreeNode<KEY, DATA> *rightSon = v.right;
-    if ((head->key) == (v.key)){
+    if ((head->key) == (v.key)) {
         head = rightSon;
     }
 
@@ -525,7 +526,7 @@ int AVLTree<KEY, DATA>::BF(TreeNode<KEY, DATA> &v) {
 
 template<class KEY, class DATA>
 template<class Function>
-void AVLTree<KEY, DATA>::BackOrder(Function &func, DATA* arr) {
+void AVLTree<KEY, DATA>::BackOrder(Function &func, DATA *arr) {
     BackOrderRec(head, func, arr);
 }
 
@@ -538,24 +539,24 @@ void AVLTree<KEY, DATA>::BackOrder(Function &func) {
 
 template<class KEY, class DATA>
 template<class Function>
-void AVLTree<KEY, DATA>::BackOrderRec(TreeNode<KEY, DATA> *v, Function& func,
-                                      DATA* arr){
+void AVLTree<KEY, DATA>::BackOrderRec(TreeNode<KEY, DATA> *v, Function &func,
+                                      DATA *arr) {
     if (!v) {
         return;
     }
-    BackOrderRec(v->right, func,arr);
-    func(v->data,arr);
-    BackOrderRec(v->left, func,arr);
+    BackOrderRec(v->right, func, arr);
+    func(v->data, arr);
+    BackOrderRec(v->left, func, arr);
 }
 
 template<class KEY, class DATA>
 template<class Function>
-void AVLTree<KEY, DATA>::BackOrderRec(TreeNode<KEY, DATA> *v, Function& func){
+void AVLTree<KEY, DATA>::BackOrderRec(TreeNode<KEY, DATA> *v, Function &func) {
     if (!v) {
         return;
     }
     BackOrderRec(v->right, func);
-    if(v->key!=NULL) {
+    if (v->key != NULL) {
         func(v->key, v->data);
     }
     BackOrderRec(v->left, func);
@@ -572,7 +573,7 @@ void AVLTree<KEY, DATA>::InOrder(KEY *arr, int *iterator) {
 
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::InOrder(TreeNode<KEY, DATA> *v, KEY *arr,
-                                 int *i){
+                                 int *i) {
     if (!v) {
         return;
     }
@@ -610,7 +611,7 @@ void AVLTree<KEY, DATA>::TreeDeleteAux(TreeNode<KEY, DATA> *head) {
 
 template<class KEY, class DATA>
 DATA *AVLTree<KEY, DATA>::Find(const KEY &key) {
-    TreeNode<KEY, DATA> *node = FindPlace(key,0);
+    TreeNode<KEY, DATA> *node = FindPlace(key, 0);
     if (node == NULL || (node->key) != key) { // then the key is not in the tree
         return NULL;
     }
@@ -619,7 +620,7 @@ DATA *AVLTree<KEY, DATA>::Find(const KEY &key) {
 
 template<class KEY, class DATA>
 DATA *AVLTree<KEY, DATA>::Add(const KEY &key, const DATA &data) {
-    TreeNode<KEY, DATA> *parent = FindPlace(key,1);
+    TreeNode<KEY, DATA> *parent = FindPlace(key, 1);
     if (parent != NULL && (parent->key) == key) { // then the key is in the tree
         throw KeyAlreadyExist();
     }
@@ -650,7 +651,7 @@ DATA *AVLTree<KEY, DATA>::Add(const KEY &key, const DATA &data) {
 }
 
 template<class KEY, class DATA>
-TreeNode<KEY, DATA> *AVLTree<KEY, DATA>::FindPlace(const KEY &key,int x) const {
+TreeNode<KEY, DATA> *AVLTree<KEY, DATA>::FindPlace(const KEY &key, int x) const {
     TreeNode<KEY, DATA> *current = head;
     TreeNode<KEY, DATA> *parent = NULL;
     while (current != NULL) {
@@ -660,10 +661,10 @@ TreeNode<KEY, DATA> *AVLTree<KEY, DATA>::FindPlace(const KEY &key,int x) const {
         }
         parent = current;
         if (key > (current->key)) {
-            current->rank+=x;
+            current->rank += x;
             current = current->right;
         } else {
-            current->rank+=x;
+            current->rank += x;
             current = current->left;
         }
     }
@@ -671,7 +672,7 @@ TreeNode<KEY, DATA> *AVLTree<KEY, DATA>::FindPlace(const KEY &key,int x) const {
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::removeTree(TreeNode<KEY,DATA> * v) {
+void AVLTree<KEY, DATA>::removeTree(TreeNode<KEY, DATA> *v) {
     if (v == nullptr) {
         return;
     }

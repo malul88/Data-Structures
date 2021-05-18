@@ -1,7 +1,7 @@
 #include "DS.h"
 
 void DS::addCarType(int typeID, int num_of_models) {
-    carType* new_car = new carType(typeID, num_of_models);            // A new Car type
+    carType *new_car = new carType(typeID, num_of_models);            // A new Car type
     buildTreeAndAdd(typeID, num_of_models, new_car);          // Add a sub tree with all models to zero_models
     types.Add(typeID, new_car);         // Add the type of the Car to the types tree
     total_cars += num_of_models;
@@ -13,7 +13,7 @@ void deleteModel(carModel *carModel) {
 
 void DS::removeCarType(int typeID) {
     carType **type = types.Find(typeID);
-    if (!type){
+    if (!type) {
         throw KeyNotExist();
     }
     total_cars -= (*type)->num_of_models;
@@ -28,7 +28,7 @@ void DS::removeCarType(int typeID) {
         }
         delete (*type)->models[i];
     }
-    AVLTree<int, carModel *> ** zeroed_models = all_zero_models.Find(typeID); // Sub_tree of all_zero_models
+    AVLTree<int, carModel *> **zeroed_models = all_zero_models.Find(typeID); // Sub_tree of all_zero_models
     (*zeroed_models)->removeTree((*zeroed_models)->GetHead());
     all_zero_models.Remove(typeID);
     types.Remove(typeID);
@@ -37,7 +37,7 @@ void DS::removeCarType(int typeID) {
 
 void DS::sellCar(int typeID, int modelID) {
     carType **type = types.Find(typeID);
-    if (!type || (*type)->num_of_models <= modelID){
+    if (!type || (*type)->num_of_models <= modelID) {
         throw KeyNotExist();
     }
     bool is_zero = (*type)->models[modelID]->grade == 0;
@@ -87,12 +87,12 @@ void DS::fillTreeWithInorder(TreeNode<int, carModel *> *v, int typeID, int num_o
 }
 
 void DS::buildTreeAndAdd(int typeID, int num_of_models, carType *carType) {
-    AVLTree<int, carModel *>* zero_new_models = new AVLTree<int, carModel *>;
+    AVLTree<int, carModel *> *zero_new_models = new AVLTree<int, carModel *>;
     zero_new_models->NumOfNodes = num_of_models;
     int h = log2((double) num_of_models);                      //height of the tree
     int leafs_to_del = pow(2, h + 1) - num_of_models - 1;
     int current_model = 0;
-    TreeNode<int, carModel*>* head = new TreeNode<int, carModel*>;
+    TreeNode<int, carModel *> *head = new TreeNode<int, carModel *>;
     zero_new_models->head = head;
     zero_new_models->head->height = h;
     zero_new_models->completeTree(zero_new_models->head, h); //making complete tree
@@ -105,7 +105,7 @@ void DS::buildTreeAndAdd(int typeID, int num_of_models, carType *carType) {
 
 void DS::updateBestSellerByType(carType *type, int modelID) {
     if ((type->best_seller != modelID && type->models[modelID]->num_of_sales > type->best_num_of_sales) ||
-            (type->best_seller > modelID && type->best_num_of_sales == type->models[modelID]->num_of_sales)) {
+        (type->best_seller > modelID && type->best_num_of_sales == type->models[modelID]->num_of_sales)) {
         type->best_seller = modelID;
         type->best_num_of_sales = type->models[modelID]->num_of_sales;
     } else if (type->best_seller == modelID) {
@@ -116,7 +116,7 @@ void DS::updateBestSellerByType(carType *type, int modelID) {
 
 void DS::makeComplaint(int typeID, int modelID, int t) {
     carType **type = types.Find(typeID);
-    if (!type || (*type)->num_of_models <= modelID){
+    if (!type || (*type)->num_of_models <= modelID) {
         throw KeyNotExist();
     }
     PriorityByGrade old_pg((*type)->models[modelID]->grade, typeID, modelID);
@@ -130,7 +130,6 @@ void DS::makeComplaint(int typeID, int modelID, int t) {
             (*current_zero_tree)->Remove(modelID);
             all_models.Add(new_pg, (*type)->models[modelID]);
         }
-
     } else {
         all_models.Remove(old_pg);
         if (new_pg.grade == 0) {
@@ -143,11 +142,11 @@ void DS::makeComplaint(int typeID, int modelID, int t) {
 }
 
 void DS::getBestSellerModelByType(int typeID, int *modelID) {
-    if (typeID == 0){
+    if (typeID == 0) {
         *modelID = best_seller.GetMaxKey().modelID;
-    } else{
+    } else {
         carType **type = types.Find(typeID);
-        if (!type){
+        if (!type) {
             throw KeyNotExist();
         }
         *modelID = (*type)->best_seller;
@@ -155,14 +154,14 @@ void DS::getBestSellerModelByType(int typeID, int *modelID) {
 }
 
 void DS::getWorstModels(int num_of_models, int *car_types, int *models) {
-    if (num_of_models > total_cars){
+    if (num_of_models > total_cars) {
         throw NotEnoughCars();
     }
     int counter = 0;
-    int * cat_types_ptr = car_types;
-    int * models_ptr = models;
-    if (all_models.head){ // Check if All models tree is empty
-        inorderAllModels(all_models.head,num_of_models, cat_types_ptr, models_ptr, &counter);
+    int *cat_types_ptr = car_types;
+    int *models_ptr = models;
+    if (all_models.head) { // Check if All models tree is empty
+        inorderAllModels(all_models.head, num_of_models, cat_types_ptr, models_ptr, &counter);
     } else {
         inorderAllZeroTypes(all_zero_models.head, num_of_models, cat_types_ptr, models_ptr, &counter);
     }
@@ -170,26 +169,26 @@ void DS::getWorstModels(int num_of_models, int *car_types, int *models) {
 }
 
 void DS::inorderAllModels(TreeNode<PriorityByGrade, carModel *> *v, int num_of_models, int *car_types, int *models, int *counter) {
-    if (v == nullptr || *counter >= num_of_models){
+    if (v == nullptr || *counter >= num_of_models) {
         return;
     }
     inorderAllModels(v->left, num_of_models, car_types, models, counter);
-    if (v->data->grade > 0 && !been_in_zero){
-        TreeNode<int,AVLTree<int, carModel*>*> *head = all_zero_models.head;
+    if (v->data->grade > 0 && !been_in_zero) {
+        TreeNode<int, AVLTree<int, carModel *> *> *head = all_zero_models.head;
         inorderAllZeroTypes(head, num_of_models, car_types, models, counter);
     }
-    if (*counter >= num_of_models){
+    if (*counter >= num_of_models) {
         return;
     } else {
         car_types[*counter] = v->data->typeID;
         models[*counter] = v->data->modelID;
-        *counter = * counter +1;
+        *counter = *counter + 1;
     }
     inorderAllModels(v->right, num_of_models, car_types, models, counter);
 }
 
-void DS::inorderAllZeroTypes(TreeNode<int, AVLTree<int, carModel *>*> *v, int num_of_models, int *car_types, int *models, int *counter) {
-    if (v == nullptr || *counter >= num_of_models){
+void DS::inorderAllZeroTypes(TreeNode<int, AVLTree<int, carModel *> *> *v, int num_of_models, int *car_types, int *models, int *counter) {
+    if (v == nullptr || *counter >= num_of_models) {
         been_in_zero = true;
         return;
     }
@@ -199,35 +198,57 @@ void DS::inorderAllZeroTypes(TreeNode<int, AVLTree<int, carModel *>*> *v, int nu
 }
 
 void DS::inorderAllZeroModels(TreeNode<int, carModel *> *v, int num_of_models, int *car_types, int *models, int *counter) {
-    if (v == nullptr || *counter >= num_of_models){
+    if (v == nullptr || *counter >= num_of_models) {
         return;
     }
     inorderAllZeroModels(v->left, num_of_models, car_types, models, counter);
-    if (*counter >= num_of_models){
+    if (*counter >= num_of_models) {
         return;
     } else {
         car_types[*counter] = v->data->typeID;
         models[*counter] = v->data->modelID;
-        *counter = * counter + 1;
+        *counter = *counter + 1;
     }
     inorderAllZeroModels(v->right, num_of_models, car_types, models, counter);
 }
 
 void DS::quit() {
-    postOrderDelete(types.head);
+    postOrderDelete(types.head); // TODO delete all sub-trees in all zero models.
+    typesPostOrderDelete(all_zero_models.head);
 }
 
-void DS::postOrderDelete(TreeNode<int, carType* >* v) {
-    if (v == nullptr){
+void DS::postOrderDelete(TreeNode<int, carType *> *v) {
+    if (v == nullptr) {
         return;
     }
     postOrderDelete(v->left);
     postOrderDelete(v->right);
-    for (int i = 0; i < v->data->num_of_models ; ++i) {
+    for (int i = 0; i < v->data->num_of_models; ++i) {
         delete v->data->models[i];
     }
     delete v;
 }
+
+void DS::modelsPostOrderDelete(TreeNode<int, carModel *> *v) {
+    if (v == nullptr){
+        return;
+    }
+    modelsPostOrderDelete(v->left);
+    modelsPostOrderDelete(v->right);
+    delete v;
+}
+
+void DS::typesPostOrderDelete(TreeNode<int, AVLTree<int, carModel*>*> * v) {
+    if (v == nullptr){
+        return;
+    }
+    typesPostOrderDelete(v->left);
+    typesPostOrderDelete(v->right);
+    //modelsPostOrderDelete(v->data->head);
+    delete v->data;
+}
+
+
 
 
 

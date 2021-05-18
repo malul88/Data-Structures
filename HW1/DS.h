@@ -50,6 +50,10 @@ public:
 
     void postOrderDelete(TreeNode<int, carType*> * v);
 
+    void modelsPostOrderDelete(TreeNode<int, carModel*> * v);
+
+    void typesPostOrderDelete(TreeNode<int, AVLTree<int, carModel*>*> * v);
+
     void buildTreeAndAdd(int typeID, int num_of_models, carType* carType);
 
     void updateBestSellerByType(carType* type, int modelID);
