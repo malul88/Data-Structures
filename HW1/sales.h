@@ -5,7 +5,6 @@
 #ifndef HW1_SALES_H
 #define HW1_SALES_H
 
-
 class PriorityBySale {
 public:
     int num_of_sales, typeID, modelID;

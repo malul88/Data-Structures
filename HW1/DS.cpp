@@ -98,8 +98,8 @@ void DS::buildTreeAndAdd(int typeID, int num_of_models, carType *carType) {
     zero_new_models->AVLdoComplete(zero_new_models->AVLhead, h); //making complete tree
     zero_new_models->AVLdoAlmostComplete(zero_new_models->AVLhead, h, &leafs_to_del);  // deleting the reserved leafs from the rightSon
     fillTreeWithInorder(zero_new_models->AVLhead, typeID, num_of_models, &current_model, carType); // filling the tree with car models by inorder
-    zero_new_models->AVLhighestNode = zero_new_models->AVLhead;
-    zero_new_models->AVLlowestNode = zero_new_models->AVLhead;
+    zero_new_models->AVLmaxNodeByKey = zero_new_models->AVLhead;
+    zero_new_models->AVLminNodeByKey = zero_new_models->AVLhead;
     all_zero_models.AVLaddNode(typeID, zero_new_models);
 }
 
@@ -247,10 +247,3 @@ void DS::typesPostOrderDelete(Node<int, AVLTree<int, carModel*>*> * v) {
     //modelsPostOrderDelete(v->dataNode->AVLhead);
     delete v->dataNode;
 }
-
-
-
-
-
-
-

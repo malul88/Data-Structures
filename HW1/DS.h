@@ -12,7 +12,6 @@
 #include "sales.h"
 #include "math.h"
 
-
 class DS {
 public:
     AVLTree<int, carType* > types; //1

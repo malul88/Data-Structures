@@ -1,44 +1,32 @@
 #ifndef MEVNE_HW1_TREE_H
 #define MEVNE_HW1_TREE_H
 
-#include <stdlib.h>
 #include <stdexcept>
 #include "Execption.h"
+#include <stdlib.h>
 
-
-#define LROLL 2
-#define RROLL -2
-#define NULL_HEIGHT -1
+#define LROLLING 2
+#define RROLLING -2
+#define NULL_HEIGHT_VALUE -1
 
 template<class KEY, class DATA>
 class Node {
 public:
     KEY keyNode;
     DATA dataNode;
-    int heightNode;
-    Node *leftSon;
-    Node *rightSon;
-    Node *parentNode;
     int rankNode;
-//    int sum_power;
+    int heightNode;
+    Node *rightSon;
+    Node *leftSon;
+    Node *parentNode;
 
     Node() :
-            keyNode(), dataNode(), heightNode(0), leftSon(NULL), rightSon(NULL),
-            parentNode(NULL), rankNode(0){ // sum_power(0)
+            keyNode(), dataNode(), heightNode(0), rankNode(0), rightSon(NULL), leftSon(NULL),
+            parentNode(NULL){
     }
 
     Node(KEY key, DATA data) :
-            keyNode(key), dataNode(data), heightNode(0), leftSon(NULL), rightSon(NULL),
-            parentNode(
-                    NULL) {
-    }
-
-    bool operator<(Node &node) const {
-        return keyNode < (node.keyNode);
-    }
-
-    bool operator>(Node &node) const {
-        return keyNode > (node.keyNode);
+            keyNode(key), dataNode(data), heightNode(0), rightSon(NULL), leftSon(NULL), parentNode(NULL){
     }
 
     bool operator==(Node &node) const {
@@ -48,25 +36,29 @@ public:
     bool operator!=(Node &node) const {
         return keyNode != (node.keyNode);
     }
+
+    bool operator<(Node &node) const {
+        return keyNode < (node.keyNode);
+    }
+
+    bool operator>(Node &node) const {
+        return keyNode > (node.keyNode);
+    }
 };
 
 template<class KEY, class DATA>
 class AVLTree {
 public:
     Node<KEY, DATA>* AVLhead;
+    Node<KEY, DATA>* AVLmaxNodeByKey;
+    Node<KEY, DATA>* AVLminNodeByKey;
     int AVLnodesCounter;
-    Node<KEY, DATA>* AVLhighestNode;
-    Node<KEY, DATA>* AVLlowestNode;
 
     AVLTree() :
-            AVLhead(NULL), AVLnodesCounter(0), AVLhighestNode(NULL), AVLlowestNode(NULL) {
+            AVLhead(NULL), AVLmaxNodeByKey(NULL), AVLminNodeByKey(NULL), AVLnodesCounter(0){
     };
 
     ~AVLTree();
-
-//    int AVLgetSize() const {
-//        return this->AVLnodesCounter;
-//    }
 
     DATA* AVLfindData(const KEY &key);
     // returns the node with the given keyNode , if not found NULL
@@ -87,7 +79,7 @@ public:
 
     KEY& AVLgetMaxKey() const {
         this->AVLisEmpty();
-        return AVLhighestNode->keyNode;
+        return AVLmaxNodeByKey->keyNode;
     }
 //    returns the maximum keyNode , if the tree is empty
 //     throws TREE_EMPTY
@@ -97,18 +89,17 @@ public:
     }
     // returns the AVLhead of the tree
 
-    /**** Functions*****/
     void LLroling(Node<KEY, DATA> &);
     // performs an LLroling roll on the given node
 
     void RRroling(Node<KEY, DATA> &);
     // performs an RRroling roll on the given node
 
-    void LRrolling(Node<KEY, DATA> &);
-    // performs an LRrolling roll on the given node
-
     void RLrolling(Node<KEY, DATA> &);
     // performs an RLrolling roll on the given node
+
+    void LRrolling(Node<KEY, DATA> &);
+    // performs an LRrolling roll on the given node
 
     Node<KEY, DATA>* AVLfindNode(const KEY &key, int y) const;
     // returns  the node with the given keyNode , if he is not found
@@ -171,27 +162,28 @@ public:
 
     void AVLdoAlmostComplete(Node<KEY, DATA> *n, int h, int *leafs_to_del);
 
-    ///////////////////////////////////////////////////////////////////////////////////////////
-
     static void AVLdeleteByHead(Node<KEY, DATA> *head);
     // deletes the tree that starts with the given AVLhead
     // in case the AVLhead is NULL does nothing
 
-    /**** Functions*****/
+    ////////////////////////////**** Functions*****/////////////////////////////////
 
 };
 
 template<class T>
-void Swap(T &a, T &b) {
-    T temp = b;
-    b = a;
-    a = temp;
+void Swap(T &x, T &y) {
+    T temp = y;
+    y = x;
+    x = temp;
 }
 
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::AVLremoveNodeByKey(const KEY &key) {
     Node<KEY, DATA> *v = AVLfindNode(key, -1);
-    if (v == NULL || (v->keyNode) != key) {    // The keyNode isn't in the tree
+    if (!v) {    // The keyNode isn't in the tree
+        throw KeyNotExist();
+    }
+    if ((v->keyNode) != key) {    // The keyNode isn't in the tree
         throw KeyNotExist();
     }
     Node<KEY, DATA> *parent = AVLremoveNode(v); // Removing
@@ -207,11 +199,11 @@ Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLremoveNode(Node<KEY, DATA> *currentNode)
     if (!currentNode) {
         return NULL;
     }
-    if ((currentNode->keyNode) == (AVLhighestNode->keyNode)) {
-        AVLhighestNode = AVLfindPreviousNode(AVLhighestNode);
+    if ((currentNode->keyNode) == (AVLmaxNodeByKey->keyNode)) {
+        AVLmaxNodeByKey = AVLfindPreviousNode(AVLmaxNodeByKey);
     }
-    if ((currentNode->keyNode) == (AVLlowestNode->keyNode)) {
-        AVLlowestNode = AVLfindNextNode(AVLlowestNode);
+    if ((currentNode->keyNode) == (AVLminNodeByKey->keyNode)) {
+        AVLminNodeByKey = AVLfindNextNode(AVLminNodeByKey);
     }
     if (nodeGetHeight(currentNode) == 0) {
         parent = currentNode->parentNode;
@@ -220,7 +212,7 @@ Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLremoveNode(Node<KEY, DATA> *currentNode)
 
         return parent;
     }
-    if (currentNode->rightSon == NULL || currentNode->leftSon == NULL) {
+    if (!(currentNode->rightSon) || !(currentNode->leftSon)) {
         parent = currentNode->parentNode;
         AVLremoveOneSonNode(*currentNode);
         delete currentNode;
@@ -233,30 +225,30 @@ Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLremoveNode(Node<KEY, DATA> *currentNode)
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::AVLswapWithNext(Node<KEY, DATA> &v) {
     Node<KEY, DATA> *following = AVLfindNextNode(&v);
-    AVLswitchNodes(&v,
-                   following); //following is definitely lower than v because v has 2 sons
+    AVLswitchNodes(&v,following); //following is definitely lower than v because v has 2 sons
 }
 
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::AVLupdateParentforSons(Node<KEY, DATA> *parent) {
-    if (parent == NULL) {
+    if (!parent) {
         return;
-    }
-    if (parent->leftSon) {
-        parent->leftSon->parentNode = parent;
     }
     if (parent->rightSon) {
         parent->rightSon->parentNode = parent;
     }
+    if (parent->leftSon) {
+        parent->leftSon->parentNode = parent;
+    }
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::AVLswitchNodesForParent(Node<KEY, DATA> *parent,
-                                                 Node<KEY, DATA> *son) {
-    if (parent == NULL || son == NULL) {
+void AVLTree<KEY, DATA>::AVLswitchNodesForParent(Node<KEY, DATA> *parent, Node<KEY, DATA> *son) {
+    if (!son) {
         return;
     }
-
+    if (!parent) {
+        return;
+    }
     Swap(parent->heightNode, son->heightNode);
     if (parent->rightSon == son) {
         Swap(parent->leftSon, son->leftSon);
@@ -300,7 +292,7 @@ void AVLTree<KEY, DATA>::AVLswitchNodes(Node<KEY, DATA> *highernode,
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::AVLswitchSon(Node<KEY, DATA> *n1,
                                       Node<KEY, DATA> *n2) {
-    if (n1->parentNode != NULL) {
+    if (n1->parentNode) {
         if (n1->parentNode->rightSon == n1) {
             n1->parentNode->rightSon = n2;
         } else {
@@ -334,11 +326,11 @@ template<class KEY, class DATA>
 Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLfindNextNode(
         Node<KEY, DATA> *currentNode) {
     Node<KEY, DATA> *w = currentNode->rightSon; //w is bigger than currentNode
-    if (w == NULL) {
+    if (!w) {
         return currentNode->parentNode;
     }
     Node<KEY, DATA> *following = w;
-    while (w != NULL) {
+    while (w) {
         following = w;
         w = w->leftSon; //get the smallest w
     }
@@ -349,11 +341,11 @@ template<class KEY, class DATA>
 Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLfindPreviousNode(
         Node<KEY, DATA> *currentNode) {
     Node<KEY, DATA> *w = currentNode->leftSon; //w is bigger than currentNode
-    if (w == NULL) {
+    if (!w) {
         return currentNode->parentNode;
     }
     Node<KEY, DATA> *prev = w;
-    while (w != NULL) {
+    while (w) {
         prev = w;
         w = w->rightSon; //get the smallest w
     }
@@ -362,19 +354,19 @@ Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLfindPreviousNode(
 
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::AVLrollFunction(Node<KEY, DATA> *currentNode) {
-    while (currentNode != NULL) {
+    while (currentNode) {
         int heightBefore = nodeGetHeight(currentNode);
         nodeUpdateHeight(currentNode);
         int bf = AVLbalanceFactorOfNode(*currentNode);
         Node<KEY, DATA> *parent = currentNode->parentNode;
-        if (bf == LROLL) {
+        if (bf == LROLLING) {
             if (AVLbalanceFactorOfNode(*currentNode->leftSon) >= 0) {
                 LLroling(*currentNode);
             } else {
                 LRrolling(*currentNode);
             }
         }
-        if (bf == RROLL) {
+        if (bf == RROLLING) {
             if (AVLbalanceFactorOfNode(*currentNode->rightSon) <= 0) {
                 RRroling(*currentNode);
             } else {
@@ -419,30 +411,19 @@ void AVLTree<KEY, DATA>::LLroling(Node<KEY, DATA> &node) {
     if ((AVLhead->keyNode) == (node.keyNode)) {
         AVLhead = leftson;
     }
-
     //change the sons of the nodes
     node.leftSon = leftson->rightSon;
     if (leftson->rightSon != NULL) {
         leftson->rightSon->parentNode = &node;
     }
     leftson->rightSon = &node;
-
     nodeUpdateHeight(&node);
     nodeUpdateHeight(leftson);
-
     // changing the parents
     AVLswitchSon(&node, leftson);
     nodeUpdateHeight(node.parentNode);
-
     leftson->parentNode = node.parentNode;
     node.parentNode = leftson;
-
-}
-
-template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::RLrolling(Node<KEY, DATA> &v) {
-    LLroling(*v.rightSon);
-    RRroling(v);
 }
 
 template<class KEY, class DATA>
@@ -452,8 +433,14 @@ void AVLTree<KEY, DATA>::LRrolling(Node<KEY, DATA> &node) {
 }
 
 template<class KEY, class DATA>
+void AVLTree<KEY, DATA>::RLrolling(Node<KEY, DATA> &v) {
+    LLroling(*v.rightSon);
+    RRroling(v);
+}
+
+template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::nodeUpdateHeight(Node<KEY, DATA> *currentNode) {
-    if (currentNode == NULL) {
+    if (!currentNode) {
         return;
     }
     currentNode->heightNode = 1 + std::max(nodeGetHeight(currentNode->rightSon), nodeGetHeight(currentNode->leftSon));
@@ -461,8 +448,8 @@ void AVLTree<KEY, DATA>::nodeUpdateHeight(Node<KEY, DATA> *currentNode) {
 
 template<class KEY, class DATA>
 int AVLTree<KEY, DATA>::nodeGetHeight(Node<KEY, DATA> *currentNode) {
-    if (currentNode == NULL) {
-        return NULL_HEIGHT;
+    if (!currentNode) {
+        return NULL_HEIGHT_VALUE;
     }
     return currentNode->heightNode;
 }
@@ -475,15 +462,17 @@ int AVLTree<KEY, DATA>::AVLbalanceFactorOfNode(Node<KEY, DATA> &currentNode) {
 
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::AVLinOrder(KEY *array, int *iterator) {
-    if (array == NULL || iterator == NULL) {
+    if (!array) {
+        return;
+    }
+    if (!iterator) {
         return;
     }
     AVLinOrder(AVLhead, array, iterator);
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::AVLinOrder(Node<KEY, DATA> *currentNode, KEY *array,
-                                    int *i) {
+void AVLTree<KEY, DATA>::AVLinOrder(Node<KEY, DATA> *currentNode, KEY *array, int *i) {
     if (!currentNode) {
         return;
     }
@@ -500,8 +489,6 @@ void AVLTree<KEY, DATA>::AVLisEmpty() const {
     }
 }
 
-//basel functions
-
 template<class KEY, class DATA>
 AVLTree<KEY, DATA>::~AVLTree<KEY, DATA>() {
     AVLdeleteByHead(AVLhead);
@@ -510,7 +497,7 @@ AVLTree<KEY, DATA>::~AVLTree<KEY, DATA>() {
 
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::AVLdeleteByHead(Node<KEY, DATA> *head) {
-    if (head == NULL) {
+    if (!head) {
         return;
     }
     AVLdeleteByHead(head->leftSon);
@@ -522,7 +509,10 @@ void AVLTree<KEY, DATA>::AVLdeleteByHead(Node<KEY, DATA> *head) {
 template<class KEY, class DATA>
 DATA *AVLTree<KEY, DATA>::AVLfindData(const KEY &key) {
     Node<KEY, DATA> *node = AVLfindNode(key, 0);
-    if (node == NULL || (node->keyNode) != key) { // then the keyNode is not in the tree
+    if ((node->keyNode) != key) { // then the keyNode is not in the tree
+        return NULL;
+    }
+    if (!node) { // then the keyNode is not in the tree
         return NULL;
     }
     return &node->dataNode;
@@ -531,16 +521,16 @@ DATA *AVLTree<KEY, DATA>::AVLfindData(const KEY &key) {
 template<class KEY, class DATA>
 DATA *AVLTree<KEY, DATA>::AVLaddNode(const KEY &key, const DATA &data) {
     Node<KEY, DATA> *parent = AVLfindNode(key, 1);
-    if (parent != NULL && (parent->keyNode) == key) { // then the keyNode is in the tree
+    if (parent && (parent->keyNode) == key) { // then the keyNode is in the tree
         throw KeyAlreadyExist();
     }
     Node<KEY, DATA> *newkey = new Node<KEY, DATA>(key, data);
-    if (parent == NULL) {
+    if (!parent) {
         AVLhead = newkey;
         newkey->parentNode = NULL;
+        AVLmaxNodeByKey = newkey;
+        AVLminNodeByKey = newkey;
         AVLnodesCounter++;
-        AVLhighestNode = newkey;
-        AVLlowestNode = newkey;
         return &newkey->dataNode;
     }
     if (key > (parent->keyNode)) {
@@ -550,11 +540,11 @@ DATA *AVLTree<KEY, DATA>::AVLaddNode(const KEY &key, const DATA &data) {
     }
     newkey->parentNode = parent;
     AVLnodesCounter++;
-    if ((newkey->keyNode) > (AVLhighestNode->keyNode)) {
-        AVLhighestNode = newkey;
+    if ((newkey->keyNode) > (AVLmaxNodeByKey->keyNode)) {
+        AVLmaxNodeByKey = newkey;
     }
-    if ((newkey->keyNode) < (AVLlowestNode->keyNode)) {
-        AVLlowestNode = newkey;
+    if ((newkey->keyNode) < (AVLminNodeByKey->keyNode)) {
+        AVLminNodeByKey = newkey;
     }
     AVLrollFunction(parent);    // checks the route of entering and makes all the changes to guarantee the tree is AVL
     return &newkey->dataNode;
@@ -564,7 +554,7 @@ template<class KEY, class DATA>
 Node<KEY, DATA> *AVLTree<KEY, DATA>::AVLfindNode(const KEY &key, int y) const {
     Node<KEY, DATA> *current = AVLhead;
     Node<KEY, DATA> *parent = NULL;
-    while (current != NULL) {
+    while (current) {
 
         if (key == (current->keyNode)) {
             return current;
@@ -623,47 +613,6 @@ void AVLTree<KEY, DATA>::AVLdoAlmostComplete(Node<KEY, DATA> *n, int h, int *lea
         }
     }
     AVLdoAlmostComplete(n->leftSon, h - 1, leafs_to_del);
-
 }
-
-
-//void PathSumPower(int k, int* sum, RankNode* root) {
-//    if (k > root->sub_size) {
-//        (*sum) += root->sumPower;
-//    }
-//    GetPower get;
-//    if (!root->leftSon) {
-//        if (k == 1) {
-//            (*sum) += root->rightSon->sumPower + get(root->dataNode);
-//            return;
-//        }
-//        if (k == 2) {
-//            (*sum) += root->rightSon->sumPower;
-//        }
-//    }
-//    if (root->leftSon->sub_size == k - 1) {
-//        if (!root->rightSon) {
-//            (*sum) += get(root->dataNode);
-//            return;
-//        }
-//        (*sum) += root->rightSon->sumPower + get(root->dataNode);
-//        return;
-//    }
-//    if (root->leftSon->sub_size > k - 1) {
-//        if (!root->rightSon) {
-//            (*sum) += get(root->dataNode);
-//            PathSumPower(k, sum, root->leftSon);
-//            return;
-//        }
-//        (*sum) += root->rightSon->sumPower + get(root->dataNode);
-//        PathSumPower(k, sum, root->leftSon);
-//        return;
-//    }
-//    if (root->leftSon->sub_size < k - 1) {
-//        PathSumPower(k - (root->leftSon->sub_size) - 1, sum, root->leftSon);
-//        return;
-//    }
-//    return;
-//}
 
 #endif //MEVNE_HW1_TREE_H
