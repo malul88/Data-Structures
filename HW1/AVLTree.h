@@ -15,219 +15,210 @@
 
 
 template<class KEY, class DATA>
-class TreeNode {
+class Node {
 public:
-    KEY key;
-    DATA data;
-    int height;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode *parent;
-    int rank;
+    KEY keyNode;
+    DATA dataNode;
+    int heightNode;
+    Node *leftSon;
+    Node *rightSon;
+    Node *parentNode;
+    int rankNode;
     int sum_power;
 
-    TreeNode() :
-            key(), data(), height(0), left(NULL), right(NULL),
-            parent(NULL), rank(0), sum_power(0) {
+    Node() :
+            keyNode(), dataNode(), heightNode(0), leftSon(NULL), rightSon(NULL),
+            parentNode(NULL), rankNode(0), sum_power(0) {
     }
 
-    TreeNode(KEY key, DATA data) :
-            key(key), data(data), height(0), left(NULL), right(NULL),
-            parent(
+    Node(KEY key, DATA data) :
+            keyNode(key), dataNode(data), heightNode(0), leftSon(NULL), rightSon(NULL),
+            parentNode(
                     NULL) {
     }
 
-    bool operator<(TreeNode &node) const {
-        return key < (node.key);
+    bool operator<(Node &node) const {
+        return keyNode < (node.keyNode);
     }
 
-    bool operator>(TreeNode &node) const {
-        return key > (node.key);
+    bool operator>(Node &node) const {
+        return keyNode > (node.keyNode);
     }
 
-    bool operator<=(TreeNode &node) const {
-        return key <= (node.key);
+    bool operator==(Node &node) const {
+        return keyNode == (node.keyNode);
     }
 
-    bool operator>=(TreeNode &node) const {
-        return key >= (node.key);
-    }
-
-    bool operator==(TreeNode &node) const {
-        return key == (node.key);
-    }
-
-    bool operator!=(TreeNode &node) const {
-        return key != (node.key);
+    bool operator!=(Node &node) const {
+        return keyNode != (node.keyNode);
     }
 };
 
 template<class KEY, class DATA>
 class AVLTree {
 public:
+    Node<KEY, DATA>* AVLhead;
+    int AVLnodesCounter;
+    Node<KEY, DATA>* AVLhighestNode;
+    Node<KEY, DATA>* AVLlowestNode;
+
     AVLTree() :
-            head(NULL), NumOfNodes(0), max(NULL), min(NULL) {
+            AVLhead(NULL), AVLnodesCounter(0), AVLhighestNode(NULL), AVLlowestNode(NULL) {
     };
 
     ~AVLTree();
 
-    int GetSize() const {
-        return this->NumOfNodes;
-    }
+//    int AVLgetSize() const {
+//        return this->AVLnodesCounter;
+//    }
 
+    DATA* AVLfindData(const KEY &key);
+    // returns the node with the given keyNode , if not found NULL
 
-    DATA *Find(const KEY &key);
-    // returns the node with the given key , if not found NULL
+    DATA* AVLaddNode(const KEY &key, const DATA &data);
+    // adds a node with the given keyNode and dataNode to the tree
+    // if the keyNode is already in ,throws KEY_ALREADY_EXIST
 
-    DATA *Add(const KEY &key, const DATA &data);
-    // adds a node with the given key and data to the tree
-    // if the key is already in ,throws KEY_ALREADY_EXIST
-
-    void Remove(const KEY &key);
-    // removes the node with the given key if found
+    void AVLremoveNodeByKey(const KEY &key);
+    // removes the node with the given keyNode if found
     // else it throws KEY_NOT_EXIST
 
-    void InOrder(KEY *arr, int *iterator);
+    void AVLinOrder(KEY *arr, int *iterator);
 
     // does inorder on the tree and returns the results in arr,arr must be already allocated
     // and must have enough space ,iterator marks the index from which the filling of the
     // arr starts , and in the end will hold the index of the last
 
-    template<class Function>
-    void BackOrder(Function &func, DATA *arr);
-    // does the opposite od in order on all nodes using a given function class
+//    template<class Function>
+//    void BackOrder(Function &func, DATA *arr); //להוריד
+//    // does the opposite od in order on all nodes using a given function class
+//
+//    template<class Function>
+//    void BackOrder(Function &func); //להוריד
 
-    template<class Function>
-    void BackOrder(Function &func);
-
-    KEY &GetMaxKey() const {
-        this->CheckEmptyTree();
-        return max->key;
+    KEY& AVLgetMaxKey() const {
+        this->AVLisEmpty();
+        return AVLhighestNode->keyNode;
     }
-    //returns the maximum key , if the tree is empty
+    //returns the maximum keyNode , if the tree is empty
     // throws TREE_EMPTY
 
-    KEY &GetMinKey() const {
-        this->CheckEmptyTree();
-        return min->key;
-    }
-    //returns the minimum key , if the tree is empty
+//    KEY& GetMinKey() const {
+//        this->AVLisEmpty();
+//        return AVLlowestNode->keyNode;
+//    }
+    //returns the minimum keyNode , if the tree is empty
     // throws TREE_EMPTY
 
-    DATA &GetMaxData() const {
-        this->CheckEmptyTree();
-        return max->data;
-    }
-    //returns the maximum's key data , if the tree is empty
+//    DATA &GetMaxData() const {
+//        this->AVLisEmpty();
+//        return AVLhighestNode->dataNode;
+//    }
+    //returns the maximum's keyNode dataNode , if the tree is empty
     // throws TREE_EMPTY
 
-    DATA &GetMinData() const {
-        this->CheckEmptyTree();
-        return min->data;
-    }
-    //returns the minimum's key data , if the tree is empty
+//    DATA &GetMinData() const {
+//        this->AVLisEmpty();
+//        return AVLlowestNode->dataNode;
+//    }
+    //returns the minimum's keyNode dataNode , if the tree is empty
     // throws TREE_EMPTY
 
-    TreeNode<KEY, DATA> *GetHead() {
-        return head;
+    Node<KEY, DATA>* AVLgetHead() {
+        return AVLhead;
     }
-
-    // returns the head of the tree
-//    void UpdateMax
-    TreeNode<KEY, DATA> *head;
-    int NumOfNodes;
-    TreeNode<KEY, DATA> *max;
-    TreeNode<KEY, DATA> *min;
+    // returns the AVLhead of the tree
 
     /**** Functions*****/
-    void LL(TreeNode<KEY, DATA> &);
-    // performs an LL roll on the given node
+    void LLroling(Node<KEY, DATA> &);
+    // performs an LLroling roll on the given node
 
-    void RR(TreeNode<KEY, DATA> &);
-    // performs an RR roll on the given node
+    void RRroling(Node<KEY, DATA> &);
+    // performs an RRroling roll on the given node
 
-    void LR(TreeNode<KEY, DATA> &);
-    // performs an LR roll on the given node
+    void LRrolling(Node<KEY, DATA> &);
+    // performs an LRrolling roll on the given node
 
-    void RL(TreeNode<KEY, DATA> &);
-    // performs an RL roll on the given node
+    void RLrolling(Node<KEY, DATA> &);
+    // performs an RLrolling roll on the given node
 
-    TreeNode<KEY, DATA> *FindPlace(const KEY &key, int x) const;
-    // returns  the node with the given key , if he is not found
-    // returns the node that should be his parent,returns NULL if the tree is empty
+    Node<KEY, DATA>* AVLfindNode(const KEY &key, int x) const;
+    // returns  the node with the given keyNode , if he is not found
+    // returns the node that should be his parentNode,returns NULL if the tree is empty
 
-    static int height(TreeNode<KEY, DATA> *v);
-    //function to return the height of a node,if NULL return -1
+    static int nodeGetHeight(Node<KEY, DATA> *v);
+    //function to return the heightNode of a node,if NULL return -1
 
-    static void UpdateHeight(TreeNode<KEY, DATA> *v);
-    //function that updates the height of a node
+    static void nodeUpdateHeight(Node<KEY, DATA> *v);
+    //function that updates the heightNode of a node
 
-    static int BF(TreeNode<KEY, DATA> &v);
-    //function to calculate the BF of a node
+    static int AVLbalanceFactorOfNode(Node<KEY, DATA> &v);
+    //function to calculate the AVLbalanceFactorOfNode of a node
 
-    TreeNode<KEY, DATA> *TreeRemove(TreeNode<KEY, DATA> *v);
-    //removes the given node from the tree and returns his parent
+    Node<KEY, DATA>* AVLremoveNode(Node<KEY, DATA> *v);
+    //removes the given node from the tree and returns his parentNode
 
-    void SwapWithFollowing(TreeNode<KEY, DATA> &v);
+    void AVLswapWithNext(Node<KEY, DATA> &v);
     //swaps the given node with the smallest node that is bigger that it
 
-    void DoRoll(TreeNode<KEY, DATA> *v);
-    // does the needed roll on v according to it's BF
+    void AVLrollFunction(Node<KEY, DATA> *v);
+    // does the needed roll on v according to it's AVLbalanceFactorOfNode
 
-    void RemoveLeaf(TreeNode<KEY, DATA> &v);
+    void AVLremoveLeaf(Node<KEY, DATA> &v);
     //removes a node that is a leaf
 
-    void RemoveOneSonNode(TreeNode<KEY, DATA> &v);
+    void AVLremoveOneSonNode(Node<KEY, DATA> &v);
     //removes a node that have only one son from the tree
 
-    static TreeNode<KEY, DATA> *FindFollowingNode(TreeNode<KEY, DATA> *v);
+    static Node<KEY, DATA>* AVLfindNextNode(Node<KEY, DATA> *v);
     //return the smallest node that is bigger than v
 
-    static TreeNode<KEY, DATA> *FindPreviousNode(TreeNode<KEY, DATA> *v);
+    static Node<KEY, DATA>* AVLfindPreviousNode(Node<KEY, DATA> *v);
     //return the biggest node that is smaller than v
 
-    void CheckEmptyTree() const;
+    void AVLisEmpty() const;
     //if the tree is empty throws TREE_EMPTY else doesnt do any thing
 
-    void SwitchNodesForParent(TreeNode<KEY, DATA> *parent,
-                              TreeNode<KEY, DATA> *son);
-    // switches the places of the nodes parent and son
-    // parent must be the parent of son
+    void AVLswitchNodesForParent(Node<KEY, DATA> *parent,
+                                 Node<KEY, DATA> *son);
+    // switches the places of the nodes parentNode and son
+    // parentNode must be the parentNode of son
 
-    void SwitchNodes(TreeNode<KEY, DATA> *highernode,
-                     TreeNode<KEY, DATA> *lowernode);
+    void AVLswitchNodes(Node<KEY, DATA> *highernode,
+                        Node<KEY, DATA> *lowernode);
     //switches the places of the nodes highernode and lowernode
 
-    static void UpdateParentforSons(TreeNode<KEY, DATA> *node);
-    // updates the parent pointer in the sones of the given node
+    static void AVLupdateParentforSons(Node<KEY, DATA> *node);
+    // updates the parentNode pointer in the sons of the given node
 
-    void SwitchSon(TreeNode<KEY, DATA> *v1, TreeNode<KEY, DATA> *v2);
-    //lets v2 become the son of v1's parent instead of v1
+    void AVLswitchSon(Node<KEY, DATA> *v1, Node<KEY, DATA> *v2);
+    //lets v2 become the son of v1's parentNode instead of v1
 
-    void InOrder(TreeNode<KEY, DATA> *v, KEY *arr, int *i);
+    void AVLinOrder(Node<KEY, DATA> *v, KEY *arr, int *i);
     //does inorder on the tree of v and returns the keys in array,array must be allocated TODO
 
-    void removeTree(TreeNode<KEY, DATA> *head);
+    void AVLremove(Node<KEY, DATA> *head);
 
-    void completeTree(TreeNode<KEY, DATA> *v, int h);
+    void AVLdoComplete(Node<KEY, DATA> *v, int h);
 
-    void makeTreeAlmostComplete(TreeNode<KEY, DATA> *v, int h, int *leafs_to_del);
-
+    void AVLdoAlmostComplete(Node<KEY, DATA> *v, int h, int *leafs_to_del);
 
     /////////////////////////////////////////////////////////////////////////////////////////////
+
     template<class Function>
-    void BackOrderRec(TreeNode<KEY, DATA> *v, Function &func,
-                      DATA *arr);
+    void BackOrderRec(Node<KEY, DATA> *v, Function &func,
+                      DATA *arr); //להוריד
     // does the opposite of inorder on all the nodes using a given function class
     //basel functions
 
     template<class Function>
-    void BackOrderRec(TreeNode<KEY, DATA> *v, Function &func);
+    void BackOrderRec(Node<KEY, DATA> *v, Function &func); //להוריד
+
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    static void TreeDeleteAux(TreeNode<KEY, DATA> *head);
-    // deletes the tree that starts with the given head
-    // in case the head is NULL does nothing
+    static void AVLdeleteByHead(Node<KEY, DATA> *head);
+    // deletes the tree that starts with the given AVLhead
+    // in case the AVLhead is NULL does nothing
 
     /**** Functions*****/
 
@@ -241,200 +232,200 @@ void Swap(T &a, T &b) {
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::Remove(const KEY &key) {
-    TreeNode<KEY, DATA> *v = FindPlace(key, -1);
-    if (v == NULL || (v->key) != key) {    // The key isn't in the tree
+void AVLTree<KEY, DATA>::AVLremoveNodeByKey(const KEY &key) {
+    Node<KEY, DATA> *v = AVLfindNode(key, -1);
+    if (v == NULL || (v->keyNode) != key) {    // The keyNode isn't in the tree
         throw KeyNotExist();
     }
-    TreeNode<KEY, DATA> *parent = TreeRemove(v); // Removing
-    this->NumOfNodes--;
+    Node<KEY, DATA> *parent = AVLremoveNode(v); // Removing
+    this->AVLnodesCounter--;
     // Now we do the Rolling to keep the tree avl
-    DoRoll(parent);
+    AVLrollFunction(parent);
     return;
 }
 
 template<class KEY, class DATA>
-TreeNode<KEY, DATA> *AVLTree<KEY, DATA>::TreeRemove(TreeNode<KEY, DATA> *v) {
-    TreeNode<KEY, DATA> *parent;
+Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLremoveNode(Node<KEY, DATA> *v) {
+    Node<KEY, DATA> *parent;
     if (!v) {
         return NULL;
     }
-    if ((v->key) == (max->key)) {
-        max = FindPreviousNode(max);
+    if ((v->keyNode) == (AVLhighestNode->keyNode)) {
+        AVLhighestNode = AVLfindPreviousNode(AVLhighestNode);
     }
-    if ((v->key) == (min->key)) {
-        min = FindFollowingNode(min);
+    if ((v->keyNode) == (AVLlowestNode->keyNode)) {
+        AVLlowestNode = AVLfindNextNode(AVLlowestNode);
     }
-    if (height(v) == 0) {
-        parent = v->parent;
-        RemoveLeaf(*v);
+    if (nodeGetHeight(v) == 0) {
+        parent = v->parentNode;
+        AVLremoveLeaf(*v);
         delete v;
 
         return parent;
     }
-    if (v->right == NULL || v->left == NULL) {
-        parent = v->parent;
-        RemoveOneSonNode(*v);
+    if (v->rightSon == NULL || v->leftSon == NULL) {
+        parent = v->parentNode;
+        AVLremoveOneSonNode(*v);
         delete v;
         return parent;
     }
-    SwapWithFollowing(*v);
-    return TreeRemove(v); //now v is a leaf or a one son node
+    AVLswapWithNext(*v);
+    return AVLremoveNode(v); //now v is a leaf or a one son node
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::SwapWithFollowing(TreeNode<KEY, DATA> &v) {
-    TreeNode<KEY, DATA> *following = FindFollowingNode(&v);
-    SwitchNodes(&v,
-                following); //following is definitely lower than v because v has 2 sons
+void AVLTree<KEY, DATA>::AVLswapWithNext(Node<KEY, DATA> &v) {
+    Node<KEY, DATA> *following = AVLfindNextNode(&v);
+    AVLswitchNodes(&v,
+                   following); //following is definitely lower than v because v has 2 sons
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::UpdateParentforSons(TreeNode<KEY, DATA> *parent) {
+void AVLTree<KEY, DATA>::AVLupdateParentforSons(Node<KEY, DATA> *parent) {
     if (parent == NULL) {
         return;
     }
-    if (parent->left) {
-        parent->left->parent = parent;
+    if (parent->leftSon) {
+        parent->leftSon->parentNode = parent;
     }
-    if (parent->right) {
-        parent->right->parent = parent;
+    if (parent->rightSon) {
+        parent->rightSon->parentNode = parent;
     }
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::SwitchNodesForParent(TreeNode<KEY, DATA> *parent,
-                                              TreeNode<KEY, DATA> *son) {
+void AVLTree<KEY, DATA>::AVLswitchNodesForParent(Node<KEY, DATA> *parent,
+                                                 Node<KEY, DATA> *son) {
     if (parent == NULL || son == NULL) {
         return;
     }
 
-    Swap(parent->height, son->height);
-    if (parent->right == son) {
-        Swap(parent->left, son->left);
-        parent->right = son->right;
-        son->right = parent;
+    Swap(parent->heightNode, son->heightNode);
+    if (parent->rightSon == son) {
+        Swap(parent->leftSon, son->leftSon);
+        parent->rightSon = son->rightSon;
+        son->rightSon = parent;
     } else {
-        Swap(parent->right, son->right);
-        parent->left = son->left;
-        son->left = parent;
+        Swap(parent->rightSon, son->rightSon);
+        parent->leftSon = son->leftSon;
+        son->leftSon = parent;
     }
-    SwitchSon(parent, son);
-    // makes the parent of the parent point to the son
-    son->parent = parent->parent;
-    UpdateParentforSons(parent);
-    UpdateParentforSons(son);
+    AVLswitchSon(parent, son);
+    // makes the parentNode of the parentNode point to the son
+    son->parentNode = parent->parentNode;
+    AVLupdateParentforSons(parent);
+    AVLupdateParentforSons(son);
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::SwitchNodes(TreeNode<KEY, DATA> *highernode,
-                                     TreeNode<KEY, DATA> *lowernode) {
-    if (highernode == lowernode->parent) {
-        SwitchNodesForParent(highernode, lowernode);
+void AVLTree<KEY, DATA>::AVLswitchNodes(Node<KEY, DATA> *highernode,
+                                        Node<KEY, DATA> *lowernode) {
+    if (highernode == lowernode->parentNode) {
+        AVLswitchNodesForParent(highernode, lowernode);
         return;
     }
 
-    Swap(highernode->height, lowernode->height);
-    Swap(highernode->left, lowernode->left);
-    Swap(highernode->right, lowernode->right);
-    SwitchSon(highernode, lowernode);
-    // makes the parent of highernode point to lowernode
-    SwitchSon(lowernode, highernode);
-    // makes the parent of lowernode  point to highernode
+    Swap(highernode->heightNode, lowernode->heightNode);
+    Swap(highernode->leftSon, lowernode->leftSon);
+    Swap(highernode->rightSon, lowernode->rightSon);
+    AVLswitchSon(highernode, lowernode);
+    // makes the parentNode of highernode point to lowernode
+    AVLswitchSon(lowernode, highernode);
+    // makes the parentNode of lowernode  point to highernode
 
-    Swap(lowernode->parent, highernode->parent);
-    // makes sure to change the parent ptr in highernode and lowernode to their new parents
-    UpdateParentforSons(highernode);
-    UpdateParentforSons(lowernode);
-    // updates the parent ptr of the sons of the two nodes
+    Swap(lowernode->parentNode, highernode->parentNode);
+    // makes sure to change the parentNode ptr in highernode and lowernode to their new parents
+    AVLupdateParentforSons(highernode);
+    AVLupdateParentforSons(lowernode);
+    // updates the parentNode ptr of the sons of the two nodes
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::SwitchSon(TreeNode<KEY, DATA> *v1,
-                                   TreeNode<KEY, DATA> *v2) {
-    if (v1->parent != NULL) {
-        if (v1->parent->right == v1) {
-            v1->parent->right = v2;
+void AVLTree<KEY, DATA>::AVLswitchSon(Node<KEY, DATA> *v1,
+                                      Node<KEY, DATA> *v2) {
+    if (v1->parentNode != NULL) {
+        if (v1->parentNode->rightSon == v1) {
+            v1->parentNode->rightSon = v2;
         } else {
-            v1->parent->left = v2;
+            v1->parentNode->leftSon = v2;
         }
     } else {
-        head = v2;
+        AVLhead = v2;
     }
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::RemoveLeaf(TreeNode<KEY, DATA> &v) {
-    SwitchSon(&v, NULL);
-    // makes the parent of v point to NULL
-    // if v is head then head=NULL
+void AVLTree<KEY, DATA>::AVLremoveLeaf(Node<KEY, DATA> &v) {
+    AVLswitchSon(&v, NULL);
+    // makes the parentNode of v point to NULL
+    // if v is AVLhead then AVLhead=NULL
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::RemoveOneSonNode(TreeNode<KEY, DATA> &v) {
+void AVLTree<KEY, DATA>::AVLremoveOneSonNode(Node<KEY, DATA> &v) {
 
-    TreeNode<KEY, DATA> *son = v.right != NULL ? v.right : v.left;
-    SwitchSon(&v, son); //let son become the son of the parent of v
+    Node<KEY, DATA> *son = v.rightSon != NULL ? v.rightSon : v.leftSon;
+    AVLswitchSon(&v, son); //let son become the son of the parentNode of v
     if (son) {
-        son->parent = v.parent;
-        UpdateHeight(v.parent);
+        son->parentNode = v.parentNode;
+        nodeUpdateHeight(v.parentNode);
     }
 
 }
 
 template<class KEY, class DATA>
-TreeNode<KEY, DATA> *AVLTree<KEY, DATA>::FindFollowingNode(
-        TreeNode<KEY, DATA> *v) {
-    TreeNode<KEY, DATA> *w = v->right; //w is bigger than v
+Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLfindNextNode(
+        Node<KEY, DATA> *v) {
+    Node<KEY, DATA> *w = v->rightSon; //w is bigger than v
     if (w == NULL) {
-        return v->parent;
+        return v->parentNode;
     }
-    TreeNode<KEY, DATA> *following = w;
+    Node<KEY, DATA> *following = w;
     while (w != NULL) {
         following = w;
-        w = w->left; //get the smallest w
+        w = w->leftSon; //get the smallest w
     }
     return following;
 }
 
 template<class KEY, class DATA>
-TreeNode<KEY, DATA> *AVLTree<KEY, DATA>::FindPreviousNode(
-        TreeNode<KEY, DATA> *v) {
-    TreeNode<KEY, DATA> *w = v->left; //w is bigger than v
+Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLfindPreviousNode(
+        Node<KEY, DATA> *v) {
+    Node<KEY, DATA> *w = v->leftSon; //w is bigger than v
     if (w == NULL) {
-        return v->parent;
+        return v->parentNode;
     }
-    TreeNode<KEY, DATA> *prev = w;
+    Node<KEY, DATA> *prev = w;
     while (w != NULL) {
         prev = w;
-        w = w->right; //get the smallest w
+        w = w->rightSon; //get the smallest w
     }
     return prev;
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::DoRoll(TreeNode<KEY, DATA> *v) {
+void AVLTree<KEY, DATA>::AVLrollFunction(Node<KEY, DATA> *v) {
     while (v != NULL) {
-        int heightBefore = height(v);
-        UpdateHeight(v);
-        int bf = BF(*v);
-        TreeNode<KEY, DATA> *parent = v->parent;
+        int heightBefore = nodeGetHeight(v);
+        nodeUpdateHeight(v);
+        int bf = AVLbalanceFactorOfNode(*v);
+        Node<KEY, DATA> *parent = v->parentNode;
         if (bf == LROLL) {
-            if (BF(*v->left) >= 0) {
-                LL(*v);
+            if (AVLbalanceFactorOfNode(*v->leftSon) >= 0) {
+                LLroling(*v);
             } else {
-                LR(*v);
+                LRrolling(*v);
             }
         }
         if (bf == RROLL) {
-            if (BF(*v->right) <= 0) {
-                RR(*v);
+            if (AVLbalanceFactorOfNode(*v->rightSon) <= 0) {
+                RRroling(*v);
             } else {
-                RL(*v);
+                RLrolling(*v);
             }
         }
-        if (height(v) == heightBefore) {
-            return; //the height didnt change so the tree is still avl
+        if (nodeGetHeight(v) == heightBefore) {
+            return; //the heightNode didnt change so the tree is still avl
         }
         v = parent;
     }
@@ -442,150 +433,150 @@ void AVLTree<KEY, DATA>::DoRoll(TreeNode<KEY, DATA> *v) {
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::RR(TreeNode<KEY, DATA> &v) {
-    TreeNode<KEY, DATA> *rightSon = v.right;
-    if ((head->key) == (v.key)) {
-        head = rightSon;
+void AVLTree<KEY, DATA>::RRroling(Node<KEY, DATA> &v) {
+    Node<KEY, DATA> *rightSon = v.rightSon;
+    if ((AVLhead->keyNode) == (v.keyNode)) {
+        AVLhead = rightSon;
     }
 
-    //change sons of v and his right son
-    v.right = rightSon->left;
-    if (rightSon->left != NULL) {
-        rightSon->left->parent = &v; //TODO check here
+    //change sons of v and his rightSon son
+    v.rightSon = rightSon->leftSon;
+    if (rightSon->leftSon != NULL) {
+        rightSon->leftSon->parentNode = &v; //TODO check here
     }
-    rightSon->left = &v;
-    UpdateHeight(&v);
-    UpdateHeight(rightSon);
+    rightSon->leftSon = &v;
+    nodeUpdateHeight(&v);
+    nodeUpdateHeight(rightSon);
 
-    //change the son of the parent of v to be rightSon
-    SwitchSon(&v, rightSon);
-    UpdateHeight(v.parent);
-    //change parents of v and his right son
-    rightSon->parent = v.parent;
-    v.parent = rightSon;
+    //change the son of the parentNode of v to be rightSon
+    AVLswitchSon(&v, rightSon);
+    nodeUpdateHeight(v.parentNode);
+    //change parents of v and his rightSon son
+    rightSon->parentNode = v.parentNode;
+    v.parentNode = rightSon;
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::LL(TreeNode<KEY, DATA> &node) {
-    TreeNode<KEY, DATA> *leftson = node.left;
-    if ((head->key) == (node.key)) {
-        head = leftson;
+void AVLTree<KEY, DATA>::LLroling(Node<KEY, DATA> &node) {
+    Node<KEY, DATA> *leftson = node.leftSon;
+    if ((AVLhead->keyNode) == (node.keyNode)) {
+        AVLhead = leftson;
     }
 
     //change the sons of the nodes
-    node.left = leftson->right;
-    if (leftson->right != NULL) {
-        leftson->right->parent = &node;
+    node.leftSon = leftson->rightSon;
+    if (leftson->rightSon != NULL) {
+        leftson->rightSon->parentNode = &node;
     }
-    leftson->right = &node;
+    leftson->rightSon = &node;
 
-    UpdateHeight(&node);
-    UpdateHeight(leftson);
+    nodeUpdateHeight(&node);
+    nodeUpdateHeight(leftson);
 
     // changing the parents
-    SwitchSon(&node, leftson);
-    UpdateHeight(node.parent);
+    AVLswitchSon(&node, leftson);
+    nodeUpdateHeight(node.parentNode);
 
-    leftson->parent = node.parent;
-    node.parent = leftson;
+    leftson->parentNode = node.parentNode;
+    node.parentNode = leftson;
 
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::RL(TreeNode<KEY, DATA> &v) {
-    LL(*v.right);
-    RR(v);
+void AVLTree<KEY, DATA>::RLrolling(Node<KEY, DATA> &v) {
+    LLroling(*v.rightSon);
+    RRroling(v);
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::LR(TreeNode<KEY, DATA> &node) {
-    RR(*node.left);
-    LL(node);
+void AVLTree<KEY, DATA>::LRrolling(Node<KEY, DATA> &node) {
+    RRroling(*node.leftSon);
+    LLroling(node);
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::UpdateHeight(TreeNode<KEY, DATA> *v) {
+void AVLTree<KEY, DATA>::nodeUpdateHeight(Node<KEY, DATA> *v) {
     if (v == NULL) {
         return;
     }
-    v->height = 1 + std::max(height(v->right), height(v->left));
+    v->heightNode = 1 + std::max(nodeGetHeight(v->rightSon), nodeGetHeight(v->leftSon));
 }
 
 template<class KEY, class DATA>
-int AVLTree<KEY, DATA>::height(TreeNode<KEY, DATA> *v) {
+int AVLTree<KEY, DATA>::nodeGetHeight(Node<KEY, DATA> *v) {
     if (v == NULL) {
         return NULL_HEIGHT;
     }
-    return v->height;
+    return v->heightNode;
 }
 
 template<class KEY, class DATA>
-int AVLTree<KEY, DATA>::BF(TreeNode<KEY, DATA> &v) {
-    return height(v.left) - height(v.right);
+int AVLTree<KEY, DATA>::AVLbalanceFactorOfNode(Node<KEY, DATA> &v) {
+    return nodeGetHeight(v.leftSon) - nodeGetHeight(v.rightSon);
 }
 
-template<class KEY, class DATA>
-template<class Function>
-void AVLTree<KEY, DATA>::BackOrder(Function &func, DATA *arr) {
-    BackOrderRec(head, func, arr);
-}
+//template<class KEY, class DATA>
+//template<class Function>
+//void AVLTree<KEY, DATA>::BackOrder(Function &func, DATA *arr) {
+//    BackOrderRec(AVLhead, func, arr);
+//}
+//
+//template<class KEY, class DATA>
+//template<class Function>
+//void AVLTree<KEY, DATA>::BackOrder(Function &func) {
+//    BackOrderRec(AVLhead, func);
+//}
+//
+//
+//template<class KEY, class DATA>
+//template<class Function>
+//void AVLTree<KEY, DATA>::BackOrderRec(Node<KEY, DATA> *v, Function &func,
+//                                      DATA *arr) {
+//    if (!v) {
+//        return;
+//    }
+//    BackOrderRec(v->rightSon, func, arr);
+//    func(v->dataNode, arr);
+//    BackOrderRec(v->leftSon, func, arr);
+//}
+//
+//template<class KEY, class DATA>
+//template<class Function>
+//void AVLTree<KEY, DATA>::BackOrderRec(Node<KEY, DATA> *v, Function &func) {
+//    if (!v) {
+//        return;
+//    }
+//    BackOrderRec(v->rightSon, func);
+//    if (v->keyNode != NULL) {
+//        func(v->keyNode, v->dataNode);
+//    }
+//    BackOrderRec(v->leftSon, func);
+//}
+//
 
 template<class KEY, class DATA>
-template<class Function>
-void AVLTree<KEY, DATA>::BackOrder(Function &func) {
-    BackOrderRec(head, func);
-}
-
-
-template<class KEY, class DATA>
-template<class Function>
-void AVLTree<KEY, DATA>::BackOrderRec(TreeNode<KEY, DATA> *v, Function &func,
-                                      DATA *arr) {
-    if (!v) {
-        return;
-    }
-    BackOrderRec(v->right, func, arr);
-    func(v->data, arr);
-    BackOrderRec(v->left, func, arr);
-}
-
-template<class KEY, class DATA>
-template<class Function>
-void AVLTree<KEY, DATA>::BackOrderRec(TreeNode<KEY, DATA> *v, Function &func) {
-    if (!v) {
-        return;
-    }
-    BackOrderRec(v->right, func);
-    if (v->key != NULL) {
-        func(v->key, v->data);
-    }
-    BackOrderRec(v->left, func);
-}
-
-
-template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::InOrder(KEY *arr, int *iterator) {
+void AVLTree<KEY, DATA>::AVLinOrder(KEY *arr, int *iterator) {
     if (arr == NULL || iterator == NULL) {
         return;
     }
-    InOrder(head, arr, iterator);
+    AVLinOrder(AVLhead, arr, iterator);
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::InOrder(TreeNode<KEY, DATA> *v, KEY *arr,
-                                 int *i) {
+void AVLTree<KEY, DATA>::AVLinOrder(Node<KEY, DATA> *v, KEY *arr,
+                                    int *i) {
     if (!v) {
         return;
     }
-    InOrder(v->left, arr, i);
-    arr[*i] = v->key;
+    AVLinOrder(v->leftSon, arr, i);
+    arr[*i] = v->keyNode;
     (*i)++;
-    InOrder(v->right, arr, i);
+    AVLinOrder(v->rightSon, arr, i);
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::CheckEmptyTree() const {
-    if (NumOfNodes == 0) {
+void AVLTree<KEY, DATA>::AVLisEmpty() const {
+    if (AVLnodesCounter == 0) {
         throw TreeEmpty();
     }
 }
@@ -594,125 +585,125 @@ void AVLTree<KEY, DATA>::CheckEmptyTree() const {
 
 template<class KEY, class DATA>
 AVLTree<KEY, DATA>::~AVLTree<KEY, DATA>() {
-    TreeDeleteAux(head);
+    AVLdeleteByHead(AVLhead);
     return;
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::TreeDeleteAux(TreeNode<KEY, DATA> *head) {
+void AVLTree<KEY, DATA>::AVLdeleteByHead(Node<KEY, DATA> *head) {
     if (head == NULL) {
         return;
     }
-    TreeDeleteAux(head->left);
-    TreeDeleteAux(head->right);
+    AVLdeleteByHead(head->leftSon);
+    AVLdeleteByHead(head->rightSon);
     delete (head);
     return;
 }
 
 template<class KEY, class DATA>
-DATA *AVLTree<KEY, DATA>::Find(const KEY &key) {
-    TreeNode<KEY, DATA> *node = FindPlace(key, 0);
-    if (node == NULL || (node->key) != key) { // then the key is not in the tree
+DATA *AVLTree<KEY, DATA>::AVLfindData(const KEY &key) {
+    Node<KEY, DATA> *node = AVLfindNode(key, 0);
+    if (node == NULL || (node->keyNode) != key) { // then the keyNode is not in the tree
         return NULL;
     }
-    return &node->data;
+    return &node->dataNode;
 }
 
 template<class KEY, class DATA>
-DATA *AVLTree<KEY, DATA>::Add(const KEY &key, const DATA &data) {
-    TreeNode<KEY, DATA> *parent = FindPlace(key, 1);
-    if (parent != NULL && (parent->key) == key) { // then the key is in the tree
+DATA *AVLTree<KEY, DATA>::AVLaddNode(const KEY &key, const DATA &data) {
+    Node<KEY, DATA> *parent = AVLfindNode(key, 1);
+    if (parent != NULL && (parent->keyNode) == key) { // then the keyNode is in the tree
         throw KeyAlreadyExist();
     }
-    TreeNode<KEY, DATA> *newkey = new TreeNode<KEY, DATA>(key, data);
+    Node<KEY, DATA> *newkey = new Node<KEY, DATA>(key, data);
     if (parent == NULL) {
-        head = newkey;
-        newkey->parent = NULL;
-        NumOfNodes++;
-        max = newkey;
-        min = newkey;
-        return &newkey->data;
+        AVLhead = newkey;
+        newkey->parentNode = NULL;
+        AVLnodesCounter++;
+        AVLhighestNode = newkey;
+        AVLlowestNode = newkey;
+        return &newkey->dataNode;
     }
-    if (key > (parent->key)) {
-        parent->right = newkey;
+    if (key > (parent->keyNode)) {
+        parent->rightSon = newkey;
     } else {
-        parent->left = newkey;
+        parent->leftSon = newkey;
     }
-    newkey->parent = parent;
-    NumOfNodes++;
-    if ((newkey->key) > (max->key)) {
-        max = newkey;
+    newkey->parentNode = parent;
+    AVLnodesCounter++;
+    if ((newkey->keyNode) > (AVLhighestNode->keyNode)) {
+        AVLhighestNode = newkey;
     }
-    if ((newkey->key) < (min->key)) {
-        min = newkey;
+    if ((newkey->keyNode) < (AVLlowestNode->keyNode)) {
+        AVLlowestNode = newkey;
     }
-    DoRoll(parent);    // checks the route of entering and makes all the changes to guarantee the tree is AVL
-    return &newkey->data;
+    AVLrollFunction(parent);    // checks the route of entering and makes all the changes to guarantee the tree is AVL
+    return &newkey->dataNode;
 }
 
 template<class KEY, class DATA>
-TreeNode<KEY, DATA> *AVLTree<KEY, DATA>::FindPlace(const KEY &key, int x) const {
-    TreeNode<KEY, DATA> *current = head;
-    TreeNode<KEY, DATA> *parent = NULL;
+Node<KEY, DATA> *AVLTree<KEY, DATA>::AVLfindNode(const KEY &key, int x) const {
+    Node<KEY, DATA> *current = AVLhead;
+    Node<KEY, DATA> *parent = NULL;
     while (current != NULL) {
 
-        if (key == (current->key)) {
+        if (key == (current->keyNode)) {
             return current;
         }
         parent = current;
-        if (key > (current->key)) {
-            current->rank += x;
-            current = current->right;
+        if (key > (current->keyNode)) {
+            current->rankNode += x;
+            current = current->rightSon;
         } else {
-            current->rank += x;
-            current = current->left;
+            current->rankNode += x;
+            current = current->leftSon;
         }
     }
     return parent;
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::removeTree(TreeNode<KEY, DATA> *v) {
+void AVLTree<KEY, DATA>::AVLremove(Node<KEY, DATA> *v) {
     if (v == nullptr) {
         return;
     }
-    removeTree(v->left);
-    removeTree(v->right);
+    AVLremove(v->leftSon);
+    AVLremove(v->rightSon);
     delete v;
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::completeTree(TreeNode<KEY, DATA> *v, int h) {
+void AVLTree<KEY, DATA>::AVLdoComplete(Node<KEY, DATA> *v, int h) {
     if (h == 0) {
         return;
     }
-    v->left = new TreeNode<KEY, DATA>;
-    v->right = new TreeNode<KEY, DATA>;
-    v->left->height = h - 1;
-    v->right->height = h - 1;
-    v->left->parent = v;
-    v->right->parent = v;
-    completeTree(v->left, h - 1);
-    completeTree(v->right, h - 1);
+    v->leftSon = new Node<KEY, DATA>;
+    v->rightSon = new Node<KEY, DATA>;
+    v->leftSon->heightNode = h - 1;
+    v->rightSon->heightNode = h - 1;
+    v->leftSon->parentNode = v;
+    v->rightSon->parentNode = v;
+    AVLdoComplete(v->leftSon, h - 1);
+    AVLdoComplete(v->rightSon, h - 1);
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::makeTreeAlmostComplete(TreeNode<KEY, DATA> *v, int h, int *leafs_to_del) {
+void AVLTree<KEY, DATA>::AVLdoAlmostComplete(Node<KEY, DATA> *v, int h, int *leafs_to_del) {
     if (v == nullptr || *leafs_to_del == 0) {
         return;
     }
-    makeTreeAlmostComplete(v->right, h - 1, leafs_to_del);
+    AVLdoAlmostComplete(v->rightSon, h - 1, leafs_to_del);
     if (h == 1) {
-        delete v->right;
-        v->right = nullptr;
+        delete v->rightSon;
+        v->rightSon = nullptr;
         *leafs_to_del = *leafs_to_del - 1;
         if (*leafs_to_del > 0) {
-            delete v->left;
-            v->left = nullptr;
+            delete v->leftSon;
+            v->leftSon = nullptr;
             *leafs_to_del = *leafs_to_del - 1;
         }
     }
-    makeTreeAlmostComplete(v->left, h - 1, leafs_to_del);
+    AVLdoAlmostComplete(v->leftSon, h - 1, leafs_to_del);
 
 }
 
@@ -722,35 +713,35 @@ void AVLTree<KEY, DATA>::makeTreeAlmostComplete(TreeNode<KEY, DATA> *v, int h, i
 //        (*sum) += root->sumPower;
 //    }
 //    GetPower get;
-//    if (!root->left) {
+//    if (!root->leftSon) {
 //        if (k == 1) {
-//            (*sum) += root->right->sumPower + get(root->data);
+//            (*sum) += root->rightSon->sumPower + get(root->dataNode);
 //            return;
 //        }
 //        if (k == 2) {
-//            (*sum) += root->right->sumPower;
+//            (*sum) += root->rightSon->sumPower;
 //        }
 //    }
-//    if (root->left->sub_size == k - 1) {
-//        if (!root->right) {
-//            (*sum) += get(root->data);
+//    if (root->leftSon->sub_size == k - 1) {
+//        if (!root->rightSon) {
+//            (*sum) += get(root->dataNode);
 //            return;
 //        }
-//        (*sum) += root->right->sumPower + get(root->data);
+//        (*sum) += root->rightSon->sumPower + get(root->dataNode);
 //        return;
 //    }
-//    if (root->left->sub_size > k - 1) {
-//        if (!root->right) {
-//            (*sum) += get(root->data);
-//            PathSumPower(k, sum, root->left);
+//    if (root->leftSon->sub_size > k - 1) {
+//        if (!root->rightSon) {
+//            (*sum) += get(root->dataNode);
+//            PathSumPower(k, sum, root->leftSon);
 //            return;
 //        }
-//        (*sum) += root->right->sumPower + get(root->data);
-//        PathSumPower(k, sum, root->left);
+//        (*sum) += root->rightSon->sumPower + get(root->dataNode);
+//        PathSumPower(k, sum, root->leftSon);
 //        return;
 //    }
-//    if (root->left->sub_size < k - 1) {
-//        PathSumPower(k - (root->left->sub_size) - 1, sum, root->left);
+//    if (root->leftSon->sub_size < k - 1) {
+//        PathSumPower(k - (root->leftSon->sub_size) - 1, sum, root->leftSon);
 //        return;
 //    }
 //    return;

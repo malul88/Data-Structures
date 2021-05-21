@@ -1,7 +1,7 @@
 # Data-Structures
 
-The course will acquire knowledge in basic data structures, analysis, applications and their various uses. <br/>
-Emphasis will be placed on adapting the data structures to the needs of the given problem. <br/>
+The course will acquire knowledge in basic dataNode structures, analysis, applications and their various uses. <br/>
+Emphasis will be placed on adapting the dataNode structures to the needs of the given problem. <br/>
 Types of structures: The simple structures (arrays, lists, stacks and queues), <br />
 - skip lists. 
 - priority queues.

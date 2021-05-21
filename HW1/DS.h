@@ -37,22 +37,22 @@ public:
 
     void getWorstModels(int num_of_models, int* types,int * models);
 
-    void fillTreeWithInorder(TreeNode<int, carModel *> *v, int typeId, int num_of_models,
+    void fillTreeWithInorder(Node<int, carModel *> *v, int typeId, int num_of_models,
                              int *current_model, carType* carType);
 
-    void inorderAllModels(TreeNode<PriorityByGrade,carModel*> * v ,int num_of_models, int* car_types,int * models, int* counter);
+    void inorderAllModels(Node<PriorityByGrade,carModel*> * v , int num_of_models, int* car_types, int * models, int* counter);
 
-    void inorderAllZeroTypes(TreeNode<int, AVLTree<int, carModel *>*> * v, int num_of_models, int *car_types, int *models, int* counter);
+    void inorderAllZeroTypes(Node<int, AVLTree<int, carModel *>*> * v, int num_of_models, int *car_types, int *models, int* counter);
 
-    void inorderAllZeroModels(TreeNode<int,carModel*> * v, int num_of_models, int *car_types, int *models, int* counter);
+    void inorderAllZeroModels(Node<int,carModel*> * v, int num_of_models, int *car_types, int *models, int* counter);
 
     void quit();
 
-    void postOrderDelete(TreeNode<int, carType*> * v);
+    void postOrderDelete(Node<int, carType*> * v);
 
-    void modelsPostOrderDelete(TreeNode<int, carModel*> * v);
+    void modelsPostOrderDelete(Node<int, carModel*> * v);
 
-    void typesPostOrderDelete(TreeNode<int, AVLTree<int, carModel*>*> * v);
+    void typesPostOrderDelete(Node<int, AVLTree<int, carModel*>*> * v);
 
     void buildTreeAndAdd(int typeID, int num_of_models, carType* carType);
 

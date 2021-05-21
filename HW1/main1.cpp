@@ -136,7 +136,7 @@ static errorType OnQuit(void** DS, const char* const command);
 /***************************************************************************/
 
 static errorType parser(const char* const command) {
-    static void *DS = NULL; /* The general data structure */
+    static void *DS = NULL; /* The general dataNode structure */
     const char* command_args = NULL;
     errorType rtn_val = error;
 
