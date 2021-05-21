@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include "Execption.h"
 
+
 #define LROLL 2
 #define RROLL -2
 #define NULL_HEIGHT -1
