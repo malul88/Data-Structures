@@ -9,8 +9,6 @@ class carModel {
 public:
     int typeID, modelID;
     int grade, complains, num_of_sales;
-    bool zeroed; // להוריד
-
 
     carModel(int typeID, int modelID) : typeID(typeID), modelID(modelID),
                                         grade(0), complains(0), num_of_sales(0) {};
@@ -22,8 +20,6 @@ public:
     bool operator==(const carModel &carModel) const;
 
     bool operator!=(const carModel &carModel) const;
-
-    void saleModel();
 
     void complainModel(int t);
 

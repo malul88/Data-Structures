@@ -84,40 +84,12 @@ public:
     // and must have enough space ,iterator marks the index from which the filling of the
     // arr starts , and in the end will hold the index of the last
 
-//    template<class Function>
-//    void BackOrder(Function &func, DATA *arr);
-//    // does the opposite od in order on all nodes using a given function class
-//
-//    template<class Function>
-//    void BackOrder(Function &func);
-
     KEY& AVLgetMaxKey() const {
         this->AVLisEmpty();
         return AVLhighestNode->keyNode;
     }
-    //returns the maximum keyNode , if the tree is empty
-    // throws TREE_EMPTY
-
-//    KEY& GetMinKey() const {
-//        this->AVLisEmpty();
-//        return AVLlowestNode->keyNode;
-//    }
-    //returns the minimum keyNode , if the tree is empty
-    // throws TREE_EMPTY
-
-//    DATA &GetMaxData() const {
-//        this->AVLisEmpty();
-//        return AVLhighestNode->dataNode;
-//    }
-    //returns the maximum's keyNode dataNode , if the tree is empty
-    // throws TREE_EMPTY
-
-//    DATA &GetMinData() const {
-//        this->AVLisEmpty();
-//        return AVLlowestNode->dataNode;
-//    }
-    //returns the minimum's keyNode dataNode , if the tree is empty
-    // throws TREE_EMPTY
+//    returns the maximum keyNode , if the tree is empty
+//     throws TREE_EMPTY
 
     Node<KEY, DATA>* AVLgetHead() {
         return AVLhead;
@@ -197,17 +169,6 @@ public:
     void AVLdoComplete(Node<KEY, DATA> *n, int h);
 
     void AVLdoAlmostComplete(Node<KEY, DATA> *n, int h, int *leafs_to_del);
-
-    /////////////////////////////////////////////////////////////////////////////////////////////
-
-//    template<class Function>
-//    void BackOrderRec(Node<KEY, DATA> *v, Function &func,
-//                      DATA *arr); //להוריד
-//    // does the opposite of inorder on all the nodes using a given function class
-//    //basel functions
-//
-//    template<class Function>
-//    void BackOrderRec(Node<KEY, DATA> *v, Function &func); //להוריד
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -510,44 +471,6 @@ int AVLTree<KEY, DATA>::AVLbalanceFactorOfNode(Node<KEY, DATA> &currentNode) {
     return nodeGetHeight(currentNode.leftSon) - nodeGetHeight(currentNode.rightSon);
 }
 
-//template<class KEY, class DATA>
-//template<class Function>
-//void AVLTree<KEY, DATA>::BackOrder(Function &func, DATA *arr) {
-//    BackOrderRec(AVLhead, func, arr);
-//}
-//
-//template<class KEY, class DATA>
-//template<class Function>
-//void AVLTree<KEY, DATA>::BackOrder(Function &func) {
-//    BackOrderRec(AVLhead, func);
-//}
-//
-//
-//template<class KEY, class DATA>
-//template<class Function>
-//void AVLTree<KEY, DATA>::BackOrderRec(Node<KEY, DATA> *v, Function &func,
-//                                      DATA *arr) {
-//    if (!v) {
-//        return;
-//    }
-//    BackOrderRec(v->rightSon, func, arr);
-//    func(v->dataNode, arr);
-//    BackOrderRec(v->leftSon, func, arr);
-//}
-//
-//template<class KEY, class DATA>
-//template<class Function>
-//void AVLTree<KEY, DATA>::BackOrderRec(Node<KEY, DATA> *v, Function &func) {
-//    if (!v) {
-//        return;
-//    }
-//    BackOrderRec(v->rightSon, func);
-//    if (v->keyNode != NULL) {
-//        func(v->keyNode, v->dataNode);
-//    }
-//    BackOrderRec(v->leftSon, func);
-//}
-//
 
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::AVLinOrder(KEY *array, int *iterator) {
