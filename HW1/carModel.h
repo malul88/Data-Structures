@@ -9,7 +9,7 @@ class carModel {
 public:
     int typeID, modelID;
     int grade, complains, num_of_sales;
-    bool zeroed;
+    bool zeroed; // להוריד
 
 
     carModel(int typeID, int modelID) : typeID(typeID), modelID(modelID),

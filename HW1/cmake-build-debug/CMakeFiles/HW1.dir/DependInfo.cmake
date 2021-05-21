@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/DS.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/DS.cpp.obj"
-  "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/Execption.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/Execption.cpp.obj"
-  "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/carModel.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/carModel.cpp.obj"
-  "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/car_type.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/car_type.cpp.obj"
-  "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/grade.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/grade.cpp.obj"
-  "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/library.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/library.cpp.obj"
-  "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/main1.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/main1.cpp.obj"
-  "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/sales.cpp" "C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/sales.cpp.obj"
+  "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/DS.cpp" "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/DS.cpp.obj"
+  "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/Execption.cpp" "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/Execption.cpp.obj"
+  "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/carModel.cpp" "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/carModel.cpp.obj"
+  "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/car_type.cpp" "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/car_type.cpp.obj"
+  "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/grade.cpp" "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/grade.cpp.obj"
+  "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/library.cpp" "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/library.cpp.obj"
+  "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/main1.cpp" "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/main1.cpp.obj"
+  "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/sales.cpp" "C:/Users/Aviv/CLionProjects/Data-Structures/HW1/cmake-build-debug/CMakeFiles/HW1.dir/sales.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
