@@ -28,8 +28,9 @@ void DS::removeCarType(int typeID) {
         }
         delete (*type)->models[i];
     }
+    delete (*type);
     AVLTree<int, carModel *> **zeroed_models = all_zero_models.AVLfindData(typeID); // Sub_tree of all_zero_models
-    (*zeroed_models)->AVLremove((*zeroed_models)->AVLgetHead());
+    delete (*zeroed_models);
     all_zero_models.AVLremoveNodeByKey(typeID);
     types.AVLremoveNodeByKey(typeID);
 
@@ -226,7 +227,7 @@ void DS::postOrderDelete(Node<int, carType *> *v) {
     for (int i = 0; i < v->dataNode->num_of_models; ++i) {
         delete v->dataNode->models[i];
     }
-    delete v;
+    delete v->dataNode;
 }
 
 void DS::modelsPostOrderDelete(Node<int, carModel *> *v) {
@@ -244,6 +245,5 @@ void DS::typesPostOrderDelete(Node<int, AVLTree<int, carModel*>*> * v) {
     }
     typesPostOrderDelete(v->leftSon);
     typesPostOrderDelete(v->rightSon);
-    //modelsPostOrderDelete(v->dataNode->AVLhead);
     delete v->dataNode;
 }

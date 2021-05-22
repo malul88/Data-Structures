@@ -23,7 +23,6 @@ public:
 
     ~carType() {
         delete[]this->models;
-        delete this;
     }
 
     bool operator<(const carType &cartype) const;

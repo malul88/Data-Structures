@@ -52,19 +52,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Aviv\CLionProjects\Data-Structures\HW1
+CMAKE_SOURCE_DIR = "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/HW1.dir/depend.make
@@ -77,107 +77,107 @@ include CMakeFiles/HW1.dir/flags.make
 
 CMakeFiles/HW1.dir/main1.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/main1.cpp.obj: ../main1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HW1.dir/main1.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\main1.cpp.obj -c C:\Users\Aviv\CLionProjects\Data-Structures\HW1\main1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HW1.dir/main1.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\main1.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\main1.cpp"
 
 CMakeFiles/HW1.dir/main1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/main1.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Aviv\CLionProjects\Data-Structures\HW1\main1.cpp > CMakeFiles\HW1.dir\main1.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\main1.cpp" > CMakeFiles\HW1.dir\main1.cpp.i
 
 CMakeFiles/HW1.dir/main1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/main1.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Aviv\CLionProjects\Data-Structures\HW1\main1.cpp -o CMakeFiles\HW1.dir\main1.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\main1.cpp" -o CMakeFiles\HW1.dir\main1.cpp.s
 
 CMakeFiles/HW1.dir/carModel.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/carModel.cpp.obj: ../carModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HW1.dir/carModel.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\carModel.cpp.obj -c C:\Users\Aviv\CLionProjects\Data-Structures\HW1\carModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HW1.dir/carModel.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\carModel.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\carModel.cpp"
 
 CMakeFiles/HW1.dir/carModel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/carModel.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Aviv\CLionProjects\Data-Structures\HW1\carModel.cpp > CMakeFiles\HW1.dir\carModel.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\carModel.cpp" > CMakeFiles\HW1.dir\carModel.cpp.i
 
 CMakeFiles/HW1.dir/carModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/carModel.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Aviv\CLionProjects\Data-Structures\HW1\carModel.cpp -o CMakeFiles\HW1.dir\carModel.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\carModel.cpp" -o CMakeFiles\HW1.dir\carModel.cpp.s
 
 CMakeFiles/HW1.dir/car_type.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/car_type.cpp.obj: ../car_type.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HW1.dir/car_type.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\car_type.cpp.obj -c C:\Users\Aviv\CLionProjects\Data-Structures\HW1\car_type.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HW1.dir/car_type.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\car_type.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\car_type.cpp"
 
 CMakeFiles/HW1.dir/car_type.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/car_type.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Aviv\CLionProjects\Data-Structures\HW1\car_type.cpp > CMakeFiles\HW1.dir\car_type.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\car_type.cpp" > CMakeFiles\HW1.dir\car_type.cpp.i
 
 CMakeFiles/HW1.dir/car_type.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/car_type.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Aviv\CLionProjects\Data-Structures\HW1\car_type.cpp -o CMakeFiles\HW1.dir\car_type.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\car_type.cpp" -o CMakeFiles\HW1.dir\car_type.cpp.s
 
 CMakeFiles/HW1.dir/DS.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/DS.cpp.obj: ../DS.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HW1.dir/DS.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\DS.cpp.obj -c C:\Users\Aviv\CLionProjects\Data-Structures\HW1\DS.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HW1.dir/DS.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\DS.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\DS.cpp"
 
 CMakeFiles/HW1.dir/DS.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/DS.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Aviv\CLionProjects\Data-Structures\HW1\DS.cpp > CMakeFiles\HW1.dir\DS.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\DS.cpp" > CMakeFiles\HW1.dir\DS.cpp.i
 
 CMakeFiles/HW1.dir/DS.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/DS.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Aviv\CLionProjects\Data-Structures\HW1\DS.cpp -o CMakeFiles\HW1.dir\DS.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\DS.cpp" -o CMakeFiles\HW1.dir\DS.cpp.s
 
 CMakeFiles/HW1.dir/Execption.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/Execption.cpp.obj: ../Execption.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HW1.dir/Execption.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\Execption.cpp.obj -c C:\Users\Aviv\CLionProjects\Data-Structures\HW1\Execption.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HW1.dir/Execption.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\Execption.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\Execption.cpp"
 
 CMakeFiles/HW1.dir/Execption.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/Execption.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Aviv\CLionProjects\Data-Structures\HW1\Execption.cpp > CMakeFiles\HW1.dir\Execption.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\Execption.cpp" > CMakeFiles\HW1.dir\Execption.cpp.i
 
 CMakeFiles/HW1.dir/Execption.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/Execption.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Aviv\CLionProjects\Data-Structures\HW1\Execption.cpp -o CMakeFiles\HW1.dir\Execption.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\Execption.cpp" -o CMakeFiles\HW1.dir\Execption.cpp.s
 
 CMakeFiles/HW1.dir/library.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/library.cpp.obj: ../library.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HW1.dir/library.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\library.cpp.obj -c C:\Users\Aviv\CLionProjects\Data-Structures\HW1\library.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HW1.dir/library.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\library.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\library.cpp"
 
 CMakeFiles/HW1.dir/library.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/library.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Aviv\CLionProjects\Data-Structures\HW1\library.cpp > CMakeFiles\HW1.dir\library.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\library.cpp" > CMakeFiles\HW1.dir\library.cpp.i
 
 CMakeFiles/HW1.dir/library.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/library.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Aviv\CLionProjects\Data-Structures\HW1\library.cpp -o CMakeFiles\HW1.dir\library.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\library.cpp" -o CMakeFiles\HW1.dir\library.cpp.s
 
 CMakeFiles/HW1.dir/grade.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/grade.cpp.obj: ../grade.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HW1.dir/grade.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\grade.cpp.obj -c C:\Users\Aviv\CLionProjects\Data-Structures\HW1\grade.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HW1.dir/grade.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\grade.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\grade.cpp"
 
 CMakeFiles/HW1.dir/grade.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/grade.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Aviv\CLionProjects\Data-Structures\HW1\grade.cpp > CMakeFiles\HW1.dir\grade.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\grade.cpp" > CMakeFiles\HW1.dir\grade.cpp.i
 
 CMakeFiles/HW1.dir/grade.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/grade.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Aviv\CLionProjects\Data-Structures\HW1\grade.cpp -o CMakeFiles\HW1.dir\grade.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\grade.cpp" -o CMakeFiles\HW1.dir\grade.cpp.s
 
 CMakeFiles/HW1.dir/sales.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/sales.cpp.obj: ../sales.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/HW1.dir/sales.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\sales.cpp.obj -c C:\Users\Aviv\CLionProjects\Data-Structures\HW1\sales.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/HW1.dir/sales.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\sales.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\sales.cpp"
 
 CMakeFiles/HW1.dir/sales.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/sales.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Aviv\CLionProjects\Data-Structures\HW1\sales.cpp > CMakeFiles\HW1.dir\sales.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\sales.cpp" > CMakeFiles\HW1.dir\sales.cpp.i
 
 CMakeFiles/HW1.dir/sales.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/sales.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Aviv\CLionProjects\Data-Structures\HW1\sales.cpp -o CMakeFiles\HW1.dir\sales.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\sales.cpp" -o CMakeFiles\HW1.dir\sales.cpp.s
 
 # Object files for target HW1
 HW1_OBJECTS = \
@@ -205,7 +205,7 @@ HW1.exe: CMakeFiles/HW1.dir/build.make
 HW1.exe: CMakeFiles/HW1.dir/linklibs.rsp
 HW1.exe: CMakeFiles/HW1.dir/objects1.rsp
 HW1.exe: CMakeFiles/HW1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable HW1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable HW1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\HW1.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -218,6 +218,6 @@ CMakeFiles/HW1.dir/clean:
 .PHONY : CMakeFiles/HW1.dir/clean
 
 CMakeFiles/HW1.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Aviv\CLionProjects\Data-Structures\HW1 C:\Users\Aviv\CLionProjects\Data-Structures\HW1 C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug C:\Users\Aviv\CLionProjects\Data-Structures\HW1\cmake-build-debug\CMakeFiles\HW1.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1" "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1" "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug" "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug" "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles\HW1.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/HW1.dir/depend
 

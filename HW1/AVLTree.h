@@ -14,8 +14,8 @@ class Node {
 public:
     KEY keyNode;
     DATA dataNode;
-    int rankNode;
     int heightNode;
+    int rankNode;
     Node *rightSon;
     Node *leftSon;
     Node *parentNode;
