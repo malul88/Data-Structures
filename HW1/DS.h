@@ -3,6 +3,7 @@
 #define HW1_DS_H
 
 #include <exception>
+#include <iostream>
 #include "AVLTree.h"
 #include "carModel.h"
 #include "car_type.h"
@@ -22,7 +23,8 @@ public:
     int total_cars;
     bool been_in_zero;
 
-    DS(): total_cars(0) , been_in_zero(false){}
+    DS(): types(),all_models(),all_zero_models(),best_seller(),total_cars(0) , been_in_zero(false){
+    }
 
     void addCarType(int typeID, int num_of_models);
 

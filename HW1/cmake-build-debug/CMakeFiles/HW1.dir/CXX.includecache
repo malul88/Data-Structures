@@ -14,12 +14,10 @@ C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/Execption.h
 stdlib.h
 -
 
-C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/DS.cpp
-DS.h
-C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/DS.h
-
 C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/DS.h
 exception
+-
+iostream
 -
 AVLTree.h
 C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/AVLTree.h
@@ -46,13 +44,11 @@ C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/carModel.h
 AVLTree.h
 C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/AVLTree.h
 
-C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/car_type.cpp
-car_type.h
-C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/car_type.h
-
 C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/car_type.h
 carModel.h
 C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/carModel.h
+iostream
+-
 
 C:/Users/Michael Malul/semester aviv/Data-Structures/HW1/grade.h
 

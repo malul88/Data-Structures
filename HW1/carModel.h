@@ -13,6 +13,8 @@ public:
     carModel(int typeID, int modelID) : typeID(typeID), modelID(modelID),
                                         grade(0), complains(0), num_of_sales(0) {};
 
+    ~carModel() {
+    }
     bool operator<(const carModel &carModel) const;
 
     bool operator>(const carModel &carModel) const;

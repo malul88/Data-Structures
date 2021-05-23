@@ -509,10 +509,10 @@ void AVLTree<KEY, DATA>::AVLdeleteByHead(Node<KEY, DATA> *head) {
 template<class KEY, class DATA>
 DATA *AVLTree<KEY, DATA>::AVLfindData(const KEY &key) {
     Node<KEY, DATA> *node = AVLfindNode(key, 0);
-    if ((node->keyNode) != key) { // then the keyNode is not in the tree
+    if (!node) { // then the keyNode is not in the tree
         return NULL;
     }
-    if (!node) { // then the keyNode is not in the tree
+    if ((node->keyNode) != key) { // then the keyNode is not in the tree
         return NULL;
     }
     return &node->dataNode;

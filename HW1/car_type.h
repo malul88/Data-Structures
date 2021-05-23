@@ -3,6 +3,7 @@
 #define HW1_CAR_TYPE_H
 
 #include "carModel.h"
+#include <iostream>
 
 
 class carType {
@@ -13,7 +14,7 @@ public:
     int best_seller, best_num_of_sales;
 
 
-    carType() : models(nullptr), best_seller(0) {};
+    carType() : models(nullptr), best_seller(0), best_num_of_sales(0) {};
 
     carType(int typeID, int num_of_models) : typeID(typeID), num_of_models(num_of_models),
                                              best_seller(0), best_num_of_sales(0) {
@@ -22,7 +23,7 @@ public:
     }
 
     ~carType() {
-        delete[]this->models;
+        delete[] models;
     }
 
     bool operator<(const carType &cartype) const;

@@ -25,7 +25,6 @@ SellCar 6 3
 SellCar 6 3
 GetBestSellerModelByType 0
 GetWorstModels 7
-RemoveCarType 10
 GetBestSellerModelByType 0
-GetWorstModels 7
 Quit
+
