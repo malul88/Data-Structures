@@ -75,22 +75,9 @@ include CMakeFiles/HW1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/HW1.dir/flags.make
 
-CMakeFiles/HW1.dir/main1.cpp.obj: CMakeFiles/HW1.dir/flags.make
-CMakeFiles/HW1.dir/main1.cpp.obj: ../main1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HW1.dir/main1.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\main1.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\main1.cpp"
-
-CMakeFiles/HW1.dir/main1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/main1.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\main1.cpp" > CMakeFiles\HW1.dir\main1.cpp.i
-
-CMakeFiles/HW1.dir/main1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/main1.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\main1.cpp" -o CMakeFiles\HW1.dir\main1.cpp.s
-
 CMakeFiles/HW1.dir/carModel.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/carModel.cpp.obj: ../carModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HW1.dir/carModel.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HW1.dir/carModel.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\carModel.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\carModel.cpp"
 
 CMakeFiles/HW1.dir/carModel.cpp.i: cmake_force
@@ -103,7 +90,7 @@ CMakeFiles/HW1.dir/carModel.cpp.s: cmake_force
 
 CMakeFiles/HW1.dir/car_type.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/car_type.cpp.obj: ../car_type.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HW1.dir/car_type.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HW1.dir/car_type.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\car_type.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\car_type.cpp"
 
 CMakeFiles/HW1.dir/car_type.cpp.i: cmake_force
@@ -116,7 +103,7 @@ CMakeFiles/HW1.dir/car_type.cpp.s: cmake_force
 
 CMakeFiles/HW1.dir/DS.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/DS.cpp.obj: ../DS.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HW1.dir/DS.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HW1.dir/DS.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\DS.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\DS.cpp"
 
 CMakeFiles/HW1.dir/DS.cpp.i: cmake_force
@@ -129,7 +116,7 @@ CMakeFiles/HW1.dir/DS.cpp.s: cmake_force
 
 CMakeFiles/HW1.dir/Execption.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/Execption.cpp.obj: ../Execption.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HW1.dir/Execption.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HW1.dir/Execption.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\Execption.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\Execption.cpp"
 
 CMakeFiles/HW1.dir/Execption.cpp.i: cmake_force
@@ -142,7 +129,7 @@ CMakeFiles/HW1.dir/Execption.cpp.s: cmake_force
 
 CMakeFiles/HW1.dir/library.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/library.cpp.obj: ../library.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HW1.dir/library.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HW1.dir/library.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\library.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\library.cpp"
 
 CMakeFiles/HW1.dir/library.cpp.i: cmake_force
@@ -155,7 +142,7 @@ CMakeFiles/HW1.dir/library.cpp.s: cmake_force
 
 CMakeFiles/HW1.dir/grade.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/grade.cpp.obj: ../grade.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HW1.dir/grade.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HW1.dir/grade.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\grade.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\grade.cpp"
 
 CMakeFiles/HW1.dir/grade.cpp.i: cmake_force
@@ -168,7 +155,7 @@ CMakeFiles/HW1.dir/grade.cpp.s: cmake_force
 
 CMakeFiles/HW1.dir/sales.cpp.obj: CMakeFiles/HW1.dir/flags.make
 CMakeFiles/HW1.dir/sales.cpp.obj: ../sales.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/HW1.dir/sales.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HW1.dir/sales.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\sales.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\sales.cpp"
 
 CMakeFiles/HW1.dir/sales.cpp.i: cmake_force
@@ -179,21 +166,33 @@ CMakeFiles/HW1.dir/sales.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/sales.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\sales.cpp" -o CMakeFiles\HW1.dir\sales.cpp.s
 
+CMakeFiles/HW1.dir/main1.cpp.obj: CMakeFiles/HW1.dir/flags.make
+CMakeFiles/HW1.dir/main1.cpp.obj: ../main1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/HW1.dir/main1.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\HW1.dir\main1.cpp.obj -c "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\main1.cpp"
+
+CMakeFiles/HW1.dir/main1.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW1.dir/main1.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\main1.cpp" > CMakeFiles\HW1.dir\main1.cpp.i
+
+CMakeFiles/HW1.dir/main1.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW1.dir/main1.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Malul\semester aviv\Data-Structures\HW1\main1.cpp" -o CMakeFiles\HW1.dir\main1.cpp.s
+
 # Object files for target HW1
 HW1_OBJECTS = \
-"CMakeFiles/HW1.dir/main1.cpp.obj" \
 "CMakeFiles/HW1.dir/carModel.cpp.obj" \
 "CMakeFiles/HW1.dir/car_type.cpp.obj" \
 "CMakeFiles/HW1.dir/DS.cpp.obj" \
 "CMakeFiles/HW1.dir/Execption.cpp.obj" \
 "CMakeFiles/HW1.dir/library.cpp.obj" \
 "CMakeFiles/HW1.dir/grade.cpp.obj" \
-"CMakeFiles/HW1.dir/sales.cpp.obj"
+"CMakeFiles/HW1.dir/sales.cpp.obj" \
+"CMakeFiles/HW1.dir/main1.cpp.obj"
 
 # External object files for target HW1
 HW1_EXTERNAL_OBJECTS =
 
-HW1.exe: CMakeFiles/HW1.dir/main1.cpp.obj
 HW1.exe: CMakeFiles/HW1.dir/carModel.cpp.obj
 HW1.exe: CMakeFiles/HW1.dir/car_type.cpp.obj
 HW1.exe: CMakeFiles/HW1.dir/DS.cpp.obj
@@ -201,6 +200,7 @@ HW1.exe: CMakeFiles/HW1.dir/Execption.cpp.obj
 HW1.exe: CMakeFiles/HW1.dir/library.cpp.obj
 HW1.exe: CMakeFiles/HW1.dir/grade.cpp.obj
 HW1.exe: CMakeFiles/HW1.dir/sales.cpp.obj
+HW1.exe: CMakeFiles/HW1.dir/main1.cpp.obj
 HW1.exe: CMakeFiles/HW1.dir/build.make
 HW1.exe: CMakeFiles/HW1.dir/linklibs.rsp
 HW1.exe: CMakeFiles/HW1.dir/objects1.rsp

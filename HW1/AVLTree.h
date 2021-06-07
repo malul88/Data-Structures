@@ -22,11 +22,11 @@ public:
 
     Node() :
             keyNode(), dataNode(), heightNode(0), rankNode(0), rightSon(NULL), leftSon(NULL),
-            parentNode(NULL){
+            parentNode(NULL) {
     }
 
     Node(KEY key, DATA data) :
-            keyNode(key), dataNode(data), heightNode(0), rightSon(NULL), leftSon(NULL), parentNode(NULL){
+            keyNode(key), dataNode(data), heightNode(0), rightSon(NULL), leftSon(NULL), parentNode(NULL) {
     }
 
     bool operator==(Node &node) const {
@@ -49,21 +49,21 @@ public:
 template<class KEY, class DATA>
 class AVLTree {
 public:
-    Node<KEY, DATA>* AVLhead;
-    Node<KEY, DATA>* AVLmaxNodeByKey;
-    Node<KEY, DATA>* AVLminNodeByKey;
+    Node<KEY, DATA> *AVLhead;
+    Node<KEY, DATA> *AVLmaxNodeByKey;
+    Node<KEY, DATA> *AVLminNodeByKey;
     int AVLnodesCounter;
 
     AVLTree() :
-            AVLhead(NULL), AVLmaxNodeByKey(NULL), AVLminNodeByKey(NULL), AVLnodesCounter(0){
+            AVLhead(NULL), AVLmaxNodeByKey(NULL), AVLminNodeByKey(NULL), AVLnodesCounter(0) {
     };
 
     ~AVLTree();
 
-    DATA* AVLfindData(const KEY &key);
+    DATA *AVLfindData(const KEY &key);
     // returns the node with the given keyNode , if not found NULL
 
-    DATA* AVLaddNode(const KEY &key, const DATA &data);
+    DATA *AVLaddNode(const KEY &key, const DATA &data);
     // adds a node with the given keyNode and dataNode to the tree
     // if the keyNode is already in ,throws KEY_ALREADY_EXIST
 
@@ -77,14 +77,14 @@ public:
     // and must have enough space ,iterator marks the index from which the filling of the
     // arr starts , and in the end will hold the index of the last
 
-    KEY& AVLgetMaxKey() const {
+    KEY &AVLgetMaxKey() const {
         this->AVLisEmpty();
         return AVLmaxNodeByKey->keyNode;
     }
 //    returns the maximum keyNode , if the tree is empty
 //     throws TREE_EMPTY
 
-    Node<KEY, DATA>* AVLgetHead() {
+    Node<KEY, DATA> *AVLgetHead() {
         return AVLhead;
     }
     // returns the AVLhead of the tree
@@ -101,7 +101,7 @@ public:
     void LRrolling(Node<KEY, DATA> &);
     // performs an LRrolling roll on the given node
 
-    Node<KEY, DATA>* AVLfindNode(const KEY &key, int y) const;
+    Node<KEY, DATA> *AVLfindNode(const KEY &key, int y) const;
     // returns  the node with the given keyNode , if he is not found
     // returns the node that should be his parentNode,returns NULL if the tree is empty
 
@@ -114,7 +114,7 @@ public:
     static int AVLbalanceFactorOfNode(Node<KEY, DATA> &currentNode);
     //function to calculate the AVLbalanceFactorOfNode of a node
 
-    Node<KEY, DATA>* AVLremoveNode(Node<KEY, DATA> *currentNode);
+    Node<KEY, DATA> *AVLremoveNode(Node<KEY, DATA> *currentNode);
     //removes the given node from the tree and returns his parentNode
 
     void AVLswapWithNext(Node<KEY, DATA> &v);
@@ -129,10 +129,10 @@ public:
     void AVLremoveOneSonNode(Node<KEY, DATA> &currentNode);
     //removes a node that have only one son from the tree
 
-    static Node<KEY, DATA>* AVLfindNextNode(Node<KEY, DATA> *currentNode);
+    static Node<KEY, DATA> *AVLfindNextNode(Node<KEY, DATA> *currentNode);
     //return the smallest node that is bigger than current Node.
 
-    static Node<KEY, DATA>* AVLfindPreviousNode(Node<KEY, DATA> *currentNode);
+    static Node<KEY, DATA> *AVLfindPreviousNode(Node<KEY, DATA> *currentNode);
     //return the biggest node that is smaller than current Node.
 
     void AVLisEmpty() const;
@@ -194,7 +194,7 @@ void AVLTree<KEY, DATA>::AVLremoveNodeByKey(const KEY &key) {
 }
 
 template<class KEY, class DATA>
-Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLremoveNode(Node<KEY, DATA> *currentNode) {
+Node<KEY, DATA> *AVLTree<KEY, DATA>::AVLremoveNode(Node<KEY, DATA> *currentNode) {
     Node<KEY, DATA> *parent;
     if (!currentNode) {
         return NULL;
@@ -202,9 +202,12 @@ Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLremoveNode(Node<KEY, DATA> *currentNode)
     if ((currentNode->keyNode) == (AVLmaxNodeByKey->keyNode)) {
         AVLmaxNodeByKey = AVLfindPreviousNode(AVLmaxNodeByKey);
     }
-    if ((currentNode->keyNode) == (AVLminNodeByKey->keyNode)) {
-        AVLminNodeByKey = AVLfindNextNode(AVLminNodeByKey);
+    if (AVLminNodeByKey) {
+        if ((currentNode->keyNode) == (AVLminNodeByKey->keyNode)) {
+            AVLminNodeByKey = AVLfindNextNode(AVLminNodeByKey);
+        }
     }
+
     if (nodeGetHeight(currentNode) == 0) {
         parent = currentNode->parentNode;
         AVLremoveLeaf(*currentNode);
@@ -212,6 +215,8 @@ Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLremoveNode(Node<KEY, DATA> *currentNode)
 
         return parent;
     }
+
+
     if (!(currentNode->rightSon) || !(currentNode->leftSon)) {
         parent = currentNode->parentNode;
         AVLremoveOneSonNode(*currentNode);
@@ -225,7 +230,7 @@ Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLremoveNode(Node<KEY, DATA> *currentNode)
 template<class KEY, class DATA>
 void AVLTree<KEY, DATA>::AVLswapWithNext(Node<KEY, DATA> &v) {
     Node<KEY, DATA> *following = AVLfindNextNode(&v);
-    AVLswitchNodes(&v,following); //following is definitely lower than v because v has 2 sons
+    AVLswitchNodes(&v, following); //following is definitely lower than v because v has 2 sons
 }
 
 template<class KEY, class DATA>
@@ -323,7 +328,7 @@ void AVLTree<KEY, DATA>::AVLremoveOneSonNode(Node<KEY, DATA> &currentNode) {
 }
 
 template<class KEY, class DATA>
-Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLfindNextNode(
+Node<KEY, DATA> *AVLTree<KEY, DATA>::AVLfindNextNode(
         Node<KEY, DATA> *currentNode) {
     Node<KEY, DATA> *w = currentNode->rightSon; //w is bigger than currentNode
     if (!w) {
@@ -338,7 +343,7 @@ Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLfindNextNode(
 }
 
 template<class KEY, class DATA>
-Node<KEY, DATA>* AVLTree<KEY, DATA>::AVLfindPreviousNode(
+Node<KEY, DATA> *AVLTree<KEY, DATA>::AVLfindPreviousNode(
         Node<KEY, DATA> *currentNode) {
     Node<KEY, DATA> *w = currentNode->leftSon; //w is bigger than currentNode
     if (!w) {
@@ -582,18 +587,18 @@ void AVLTree<KEY, DATA>::AVLremove(Node<KEY, DATA> *v) {
 }
 
 template<class KEY, class DATA>
-void AVLTree<KEY, DATA>::AVLdoComplete(Node<KEY, DATA> *n, int h) {
+void AVLTree<KEY, DATA>::AVLdoComplete(Node<KEY, DATA> *v, int h) {
     if (h == 0) {
         return;
     }
-    n->leftSon = new Node<KEY, DATA>;
-    n->rightSon = new Node<KEY, DATA>;
-    n->leftSon->heightNode = h - 1;
-    n->rightSon->heightNode = h - 1;
-    n->leftSon->parentNode = n;
-    n->rightSon->parentNode = n;
-    AVLdoComplete(n->leftSon, h - 1);
-    AVLdoComplete(n->rightSon, h - 1);
+    v->leftSon = new Node<KEY, DATA>;
+    v->rightSon = new Node<KEY, DATA>;
+    v->leftSon->heightNode = h - 1;
+    v->rightSon->heightNode = h - 1;
+    v->leftSon->parentNode = v;
+    v->rightSon->parentNode = v;
+    AVLdoComplete(v->leftSon, h - 1);
+    AVLdoComplete(v->rightSon, h - 1);
 }
 
 template<class KEY, class DATA>

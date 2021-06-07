@@ -1,4 +1,5 @@
 #include "DS.h"
+#include <memory>
 
 void DS::addCarType(int typeID, int num_of_models) {
     carType *new_car = new carType(typeID, num_of_models);            // A new Car type
@@ -96,6 +97,7 @@ void DS::buildTreeAndAdd(int typeID, int num_of_models, carType *carType) {
     Node<int, carModel *> *head = new Node<int, carModel *>;
     zero_new_models->AVLhead = head;
     zero_new_models->AVLhead->heightNode = h;
+    zero_new_models->AVLnodesCounter = num_of_models;
     zero_new_models->AVLdoComplete(zero_new_models->AVLhead, h); //making complete tree
     zero_new_models->AVLdoAlmostComplete(zero_new_models->AVLhead, h, &leafs_to_del);  // deleting the reserved leafs from the rightSon
     fillTreeWithInorder(zero_new_models->AVLhead, typeID, num_of_models, &current_model, carType); // filling the tree with car models by inorder
