@@ -262,6 +262,11 @@ public:
     void MakeAlmostComplete(TreeNode<KEY, DATA> *n, int h, int *leafs_to_del);
 
     void RankTheTree(TreeNode<KEY, DATA>* v);
+
+    TreeNode<KEY, DATA> * findElementByIndex(TreeNode<KEY,DATA>* v, int key);
+
+    int n(TreeNode<KEY,DATA>* v);
+
 };
 
 
@@ -922,6 +927,33 @@ void RankTree<KEY, DATA>::RankTheTree(TreeNode<KEY, DATA> *v) {
         v->Rank = 1 + v->right->Rank;
     } else {
         v->Rank = 1;
+    }
+}
+
+template<class KEY, class DATA>
+TreeNode<KEY, DATA> * RankTree<KEY, DATA>::findElementByIndex(TreeNode<KEY, DATA> *v, int k) {
+    k++;
+    while(v != nullptr){
+        if (n(v->left) == k-1){
+            return v;
+        } else if (n(v->left) > k-1){
+            v = v->left;
+            continue;
+        } else {
+            k = k - n(v->left) -1;
+            v = v->right;
+            continue;
+        }
+    }
+    return nullptr;
+}
+
+template<class KEY, class DATA>
+int RankTree<KEY, DATA>::n(TreeNode<KEY, DATA> *v) {
+    if (!v){
+        return 0;
+    } else {
+        return v->Rank;
     }
 }
 

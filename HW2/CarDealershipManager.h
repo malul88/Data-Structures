@@ -2,6 +2,7 @@
 #define HW2_CARDEALERSHIPMANAGER_H
 #include "UnionFind.h"
 
+
 class CarDealershipManager {
 public:
     UnionFind system;
@@ -15,7 +16,9 @@ public:
 
     void UniteAgencies(int agencyID1, int agencyID2);
 
-    void GetlthSoldType(int agencyID, int* res);
+    void GetlthSoldType(int agencyID,int i, int* res);
+
+    void Quit();
 
 
 };

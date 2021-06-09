@@ -7,21 +7,31 @@
 
 class UnionFind {
 public:
-    DynamicArray<UpTreeNode<int, Agency*>*> agencies;
-    DynamicArray<Agency*> agencies_group;
+    DynamicArray<UpTreeNode<int, Agency *> *>* agencies;
+    const int CARS = 1;
+    const int ID_CARS = 2;
 
-    // Tree for all cars in all agencies
-    RankTree<int,int> all_cars;
+    UnionFind(){
+        agencies = new DynamicArray<UpTreeNode<int, Agency *> *>;
+    }
+    ~UnionFind(){
+        delete agencies;
+    }
 
-    void Union(UpTreeNode<int, Agency*> * v,UpTreeNode<int, Agency*> * w );
+    void Union(UpTreeNode<int, Agency *> *v, UpTreeNode<int, Agency *> *w);
 
-    UpTreeNode<int, Agency*>* find(int AgencyID);
+    UpTreeNode<int, Agency *> *find(int AgencyID);
 
     UpTreeNode<int, Agency *> *getTopAndShrink(UpTreeNode<int, Agency *> *v);
 
     void sellCar(int AgencyID, int typeID, int k);
-};
 
+    int findCarByIndex(int agencyID, int i);
+
+    template<class C,class T>
+    void UniteTrees(UpTreeNode<int, Agency *> *v, UpTreeNode<int, Agency *> *w, int type,C* c);
+
+};
 
 
 #endif //HW2_UNIONFIND_H
