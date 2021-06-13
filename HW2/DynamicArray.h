@@ -16,7 +16,7 @@ public:
         array = new T[INITIAL_SIZE];
     }
     ~DynamicArray(){
-        delete array;
+        delete[] array;
     }
 
     // function add an element at the end of array
@@ -35,7 +35,7 @@ public:
                 temp[i] = array[i];
             }
         }
-        delete array;
+        delete []array;
         array = temp;
         size = size * EXPAND_RATE;
     }
@@ -48,7 +48,7 @@ public:
                 temp[i] = array[i];
             }
             size = count;
-            delete array;
+            delete []array;
             array = temp;
         }
     }

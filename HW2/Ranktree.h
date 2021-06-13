@@ -2,6 +2,7 @@
 #define HW2_WET_RankTREE_H
 
 #include <stdlib.h>
+#include <iostream>
 #include <algorithm>
 #include "Execption.h"
 
@@ -299,10 +300,10 @@ TreeNode<KEY, DATA>* RankTree<KEY, DATA>::TreeRemove(TreeNode<KEY, DATA>* v) {
     if (!v) {
         return nullptr;
     }
-    if ((v->key) == (max->key)) {
+    if (max&& (v->key) == (max->key)) {
         max = FindPreviousNode(max);
     }
-    if ((v->key) == (min->key)) {
+    if (min&& (v->key) == (min->key)) {
         min = FindFollowingNode(min);
     }
     if (height(v) == 0) {
@@ -449,7 +450,7 @@ void RankTree<KEY, DATA>::RemoveOneSonNode(TreeNode<KEY, DATA>& v) {
 
     TreeNode<KEY, DATA>* son = v.right != nullptr ? v.right : v.left;
     SwitchSon(&v, son); //let son become the son of the parent of v
-    son->parent = v.parent;
+    if (son) son->parent = v.parent;
     UpdateHeight(v.parent);
 
 }
@@ -506,18 +507,16 @@ void RankTree<KEY, DATA>::DoRoll(TreeNode<KEY, DATA>* v) {
             }
         }
         if (height(v) == heightBefore) {
-           if(v) {
-               v->Rank = 1;
-               v->sum_power = v->power;
-               if (v->right) {
-                   v->Rank += v->right->Rank;
-                   v->sum_power += v->right->sum_power;
-               }
-               if (v->left) {
-                   v->Rank += v->left->Rank;
-                   v->sum_power += v->left->sum_power;
-               }
-           }
+            v->Rank = 1;
+            v->sum_power = v->power;
+            if (v->right) {
+                v->Rank += v->right->Rank;
+                v->sum_power += v->right->sum_power;
+            }
+            if (v->left) {
+                v->Rank += v->left->Rank;
+                v->sum_power += v->left->sum_power;
+            }
             if(parent) {
             parent->Rank = 1;
             parent->sum_power = parent->power;
@@ -787,12 +786,13 @@ DATA* RankTree<KEY, DATA>::Add(const KEY& key, const DATA& data,int power) {
     }
     newkey->parent = parent;
     NumOfNodes++;
-    if ((newkey->key) > (max->key)) {
+    if (max && (newkey->key) > (max->key)) {
         max = newkey;
     }
-    if ((newkey->key) < (min->key)) {
+    if (min && (newkey->key) < (min->key)) {
         min = newkey;
     }
+
    FindPlace(key,1,power);
     DoRoll(parent);	// checks the route of entering and makes all the changes to guarantee the tree is AVL
     return &newkey->data;

@@ -52,7 +52,7 @@ StatusType GetIthSoldType(void *DS, int agencyID, int i, int* res){
         return INVALID_INPUT;
     }
     try {
-        ((CarDealershipManager*)DS)->GetlthSoldType(agencyID,i,res);
+        ((CarDealershipManager*)DS)->GetIthSoldType(agencyID,i,res);
     } catch (Exception &e) {
         return FAILURE;
     } catch (...) {

@@ -16,7 +16,7 @@ void CarDealershipManager::UniteAgencies(int agencyID1, int agencyID2) {
     system.Union(system.find(agencyID1),system.find(agencyID2));
 }
 
-void CarDealershipManager::GetlthSoldType(int agencyID,int i, int *res) {
+void CarDealershipManager::GetIthSoldType(int agencyID,int i, int *res) {
     *res = system.findCarByIndex(agencyID,i);
 }
 
@@ -28,8 +28,6 @@ void CarDealershipManager::Quit() {
             node->data = nullptr;
         }
         delete node;
-
-
     }
 
 }

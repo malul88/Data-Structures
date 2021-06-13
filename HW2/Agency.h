@@ -4,6 +4,7 @@
 #include <cmath>
 #include "RankTree.h"
 #include "SalesKey.h"
+#include "TypeKey.h"
 #include "UpTree.h"
 
 class Agency {
@@ -11,7 +12,6 @@ public:
     int agencyID, num_of_cars;
     RankTree<PriorityBySale, int> *cars;
     RankTree<int, int> *id_cars;
-    UpTreeNode<int,Agency*> * head;
 
     Agency(int agencyID, int num_of_cars) : agencyID(agencyID), num_of_cars(num_of_cars) {
         cars = new RankTree<PriorityBySale, int>();
@@ -31,7 +31,7 @@ public:
 
 
     void treeToArray(TreeNode<PriorityBySale, int> *v, PriorityBySale *array, int *counter);
-    void treeToArray(TreeNode<int, int> *v, int *array, int *counter);
+    void treeToArray(TreeNode<int, int> *v, PriorityByType *array, int *counter);
 
 
 
@@ -39,17 +39,17 @@ public:
     // arr3[0..n1+n2-1]
     void mergeArrays(PriorityBySale arr1[], PriorityBySale arr2[], int n1,
                      int n2, PriorityBySale arr3[]);
-    void mergeArrays(int arr1[], int arr2[], int n1,
-                     int n2, int arr3[]);
+    void mergeArrays(PriorityByType arr1[], PriorityByType arr2[], int n1,
+                     int n2, PriorityByType arr3[]);
 
     void arrayToTree(PriorityBySale *array,int m, RankTree<PriorityBySale, int> *v);
-    void arrayToTree(PriorityBySale *array,int m, RankTree<int, int> *v);
+    void arrayToTree(PriorityByType *array,int m, RankTree<int, int> *v);
 
 
     void fillTreeWithInorder(TreeNode<PriorityBySale, int> *v, int m,
             int *current_model, PriorityBySale *array);
     void fillTreeWithInorder(TreeNode<int, int> *v, int m,
-            int *current_model, PriorityBySale *array);
+            int *current_model, PriorityByType *array);
 };
 
 

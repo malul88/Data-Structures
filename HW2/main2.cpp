@@ -28,11 +28,11 @@ typedef enum {
     NONE_CMD = -2,
     COMMENT_CMD = -1,
     INIT_CMD = 0,
-	ADDAGENCY_CMD = 1,
-	SELLCAR_CMD = 2,
-	UNITEAGENCIES_CMD = 3,
-	GETITHSOLDTYPE_CMD = 4,
-	QUIT_CMD = 5
+    ADDAGENCY_CMD = 1,
+    SELLCAR_CMD = 2,
+    UNITEAGENCIES_CMD = 3,
+    GETITHSOLDTYPE_CMD = 4,
+    QUIT_CMD = 5
 } commandType;
 
 static const int numActions = 6;
@@ -41,9 +41,9 @@ static const char *commandStr[] = {
         "AddAgency",
         "SellCar",
         "UniteAgencies",
-		"GetIthSoldType",
+        "GetIthSoldType",
         "Quit"
-    };
+};
 
 static const char* ReturnValToStr(int val) {
     switch (val) {
@@ -136,7 +136,7 @@ static errorType parser(const char* const command) {
     errorType rtn_val = error;
 
     commandType command_val = CheckCommand(command, &command_args);
-	
+
     switch (command_val) {
 
         case (INIT_CMD):
@@ -233,7 +233,7 @@ static errorType OnUniteAgencies(void* DS, const char* const command) {
 }
 
 static errorType OnGetIthSoldType(void* DS, const char* const command) {
-	int agencyID, i, typeID;
+    int agencyID, i, typeID;
     ValidateRead(sscanf(command, "%d %d", &agencyID, &i), 2, "%s failed.\n", commandStr[GETITHSOLDTYPE_CMD]);
     StatusType res = GetIthSoldType(DS, agencyID, i, &typeID);
 

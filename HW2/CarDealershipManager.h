@@ -16,7 +16,7 @@ public:
 
     void UniteAgencies(int agencyID1, int agencyID2);
 
-    void GetlthSoldType(int agencyID,int i, int* res);
+    void GetIthSoldType(int agencyID,int i, int* res);
 
     void Quit();
 
