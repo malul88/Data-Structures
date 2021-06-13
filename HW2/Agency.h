@@ -27,9 +27,6 @@ public:
         *cars = *a.cars;
     }
 
-    void sellCar(int typeID, int k);
-
-
     void treeToArray(TreeNode<PriorityBySale, int> *v, PriorityBySale *array, int *counter);
     void treeToArray(TreeNode<int, int> *v, PriorityByType *array, int *counter);
 

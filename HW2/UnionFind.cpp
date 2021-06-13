@@ -17,6 +17,7 @@ void UnionFind::Union(UpTreeNode<int, Agency *> *v, UpTreeNode<int, Agency *> *w
         v->parent = w;
         return;
     }
+    // Unite rank tree and AVL tree
     RankTree<PriorityBySale, int> *cars = new RankTree<PriorityBySale, int>;
     UniteTrees<RankTree<PriorityBySale, int>, PriorityBySale>(v, w, CARS, cars);
     RankTree<int, int> *id_cars = new RankTree<int, int>;
@@ -24,23 +25,19 @@ void UnionFind::Union(UpTreeNode<int, Agency *> *v, UpTreeNode<int, Agency *> *w
 
     // Uniting by the smaller agency
     if (m1 > m2) {
-        Agency *new_agency = new Agency(v->data->agencyID, v->data->num_of_cars);
-        new_agency->cars = cars;
-        new_agency->id_cars = id_cars;
-        Agency *old_agency = v->data;
-        v->data = new_agency;
-        delete old_agency;
+        delete v->data->cars;
+        delete v->data->id_cars;
+        v->data->cars = cars;
+        v->data->id_cars = id_cars;
         delete (w->data);
         w->data = nullptr;
         w->parent = v;
         v->data->num_of_cars += m2;
     } else {
-        Agency *new_agency = new Agency(w->data->agencyID, w->data->num_of_cars);
-        new_agency->cars = cars;
-        new_agency->id_cars = id_cars;
-        Agency* old_agency = w->data;
-        w->data = new_agency;
-        delete old_agency;
+        delete w->data->cars;
+        delete w->data->id_cars;
+        w->data->cars = cars;
+        w->data->id_cars = id_cars;
         delete (v->data);
         v->data = nullptr;
         v->parent = w;
@@ -66,17 +63,18 @@ UpTreeNode<int, Agency *> *UnionFind::getTopAndShrink(UpTreeNode<int, Agency *> 
     while (root->parent) {
         root = root->parent;
     }
-    UpTreeNode<int, Agency *> *temp = v;
-    while (temp) {
-        temp = temp->parent;
+    UpTreeNode<int, Agency *> *temp;
+    while (v->parent) {
+        temp = v->parent;
         v->parent = root;
+        v = temp;
     }
     return root;
 }
 
 void UnionFind::sellCar(int AgencyID, int typeID, int k) {
     int *data = nullptr;
-    Agency *agency = find(AgencyID)->data;
+    Agency *agency = (find(AgencyID))->data;
     if (!agency) {
         throw KeyNotExist();
     }
@@ -89,6 +87,7 @@ void UnionFind::sellCar(int AgencyID, int typeID, int k) {
             agency->cars->Remove(old_ps);
             agency->cars->Add(new_ps, new_ps.num_of_sales);
             agency->id_cars->Add(typeID, new_ps.num_of_sales);
+            agency->cars->RankTheTree(agency->cars->head);
         } else {
             PriorityBySale new_ps(k, typeID);
             agency->id_cars->Add(typeID, new_ps.num_of_sales);

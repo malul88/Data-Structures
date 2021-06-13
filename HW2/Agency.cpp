@@ -63,10 +63,6 @@ void Agency::fillTreeWithInorder(TreeNode<PriorityBySale, int> *v, int m, int *c
     fillTreeWithInorder(v->right, m, current_car, array);
 }
 
-void Agency::sellCar(int typeID, int k) {
-
-}
-
 void Agency::treeToArray(TreeNode<int, int> *v, PriorityByType *array, int *counter) {
     if (v == nullptr) {
         return;
