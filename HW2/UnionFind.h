@@ -31,7 +31,6 @@ public:
     template<class C,class T>
     void UniteTrees(UpTreeNode<int, Agency *> *v, UpTreeNode<int, Agency *> *w, int type,C* c);
 
-    UpTreeNode<int, Agency *> * shrink(UpTreeNode<int, Agency *> *v);
 };
 
 

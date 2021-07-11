@@ -199,7 +199,7 @@ Node<KEY, DATA> *AVLTree<KEY, DATA>::AVLremoveNode(Node<KEY, DATA> *currentNode)
     if (!currentNode) {
         return NULL;
     }
-    if ((currentNode->keyNode) == (AVLmaxNodeByKey->keyNode)) {
+    if (AVLmaxNodeByKey && (currentNode->keyNode) == (AVLmaxNodeByKey->keyNode)) {
         AVLmaxNodeByKey = AVLfindPreviousNode(AVLmaxNodeByKey);
     }
     if (AVLminNodeByKey) {
@@ -545,10 +545,10 @@ DATA *AVLTree<KEY, DATA>::AVLaddNode(const KEY &key, const DATA &data) {
     }
     newkey->parentNode = parent;
     AVLnodesCounter++;
-    if ((newkey->keyNode) > (AVLmaxNodeByKey->keyNode)) {
+    if (AVLmaxNodeByKey && (newkey->keyNode) > (AVLmaxNodeByKey->keyNode)) {
         AVLmaxNodeByKey = newkey;
     }
-    if ((newkey->keyNode) < (AVLminNodeByKey->keyNode)) {
+    if (AVLminNodeByKey && (newkey->keyNode) < (AVLminNodeByKey->keyNode)) {
         AVLminNodeByKey = newkey;
     }
     AVLrollFunction(parent);    // checks the route of entering and makes all the changes to guarantee the tree is AVL

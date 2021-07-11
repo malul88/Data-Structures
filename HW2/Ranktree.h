@@ -450,7 +450,8 @@ void RankTree<KEY, DATA>::RemoveOneSonNode(TreeNode<KEY, DATA>& v) {
 
     TreeNode<KEY, DATA>* son = v.right != nullptr ? v.right : v.left;
     SwitchSon(&v, son); //let son become the son of the parent of v
-    if (son) son->parent = v.parent;
+    if (son)
+    son->parent = v.parent;
     UpdateHeight(v.parent);
 
 }

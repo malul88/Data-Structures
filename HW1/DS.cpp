@@ -165,7 +165,7 @@ void DS::getWorstModels(int num_of_models, int *car_types, int *models) {
     int *models_ptr = models;
     if (all_models.AVLhead) { // Check if All models tree is empty
         inorderAllModels(all_models.AVLhead, num_of_models, cat_types_ptr, models_ptr, &counter);
-    } else {
+    } if(!been_in_zero) {
         inorderAllZeroTypes(all_zero_models.AVLhead, num_of_models, cat_types_ptr, models_ptr, &counter);
     }
     been_in_zero = false;

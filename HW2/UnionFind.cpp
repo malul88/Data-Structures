@@ -53,6 +53,7 @@ UpTreeNode<int, Agency *> *UnionFind::find(int AgencyID) {
     return getTopAndShrink(a);
 }
 
+// Getting the top of the up tree and shrink the route
 UpTreeNode<int, Agency *> *UnionFind::getTopAndShrink(UpTreeNode<int, Agency *> *v) {
     if (v->parent == nullptr) {
         return v;
@@ -71,6 +72,7 @@ UpTreeNode<int, Agency *> *UnionFind::getTopAndShrink(UpTreeNode<int, Agency *> 
     }
     return root;
 }
+
 
 void UnionFind::sellCar(int AgencyID, int typeID, int k) {
     int *data = nullptr;
@@ -102,6 +104,7 @@ void UnionFind::sellCar(int AgencyID, int typeID, int k) {
     }
 }
 
+// Select (i)
 int UnionFind::findCarByIndex(int agencyID, int i) {
     Agency *agency = (find(agencyID))->data;
     if (!agency || i > agency->num_of_cars) {
@@ -146,11 +149,4 @@ void UnionFind::UniteTrees(UpTreeNode<int, Agency *> *v, UpTreeNode<int, Agency 
     delete[] array3;
 }
 
-UpTreeNode<int, Agency *> *UnionFind::shrink(UpTreeNode<int, Agency *> *v) {
-    if (v->parent == nullptr) {
-        return v;
-    }
-    v->parent = shrink(v->parent);
-    return v;
-}
 
